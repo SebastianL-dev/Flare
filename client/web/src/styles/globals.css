@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-join-card {
+    background: #8400ff;
+    background: radial-gradient(at center top, #8400ff33 0%, #00000000 75%);
+  }
+
+  .bg-chat-card {
+    background: #8400ff;
+    background: radial-gradient(at left center, #8400ff33 0%, #00000000 50%);
+  }
+
+  .chat-scroll::-webkit-scrollbar-thumb {
+    background-color: #a955f777;
+    border-radius: 99999px;
+  }
+
+  .chat-scroll::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+    background-color: #d19fff13;
+    border-radius: 99999px;
+  }
+
+  .button-hover {
+    transition: scale cubic-bezier(0.68, -0.6, 0.32, 1.6) 0.4s,
+      background-color linear 0.3s, box-shadow linear 0.3s;
+  }
+
+  .button-hover:hover {
+    scale: 1.1;
+  }
+
+  .error-anim {
+    transition: transform cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s,
+      opacity linear 0.3s;
+  }
+}
