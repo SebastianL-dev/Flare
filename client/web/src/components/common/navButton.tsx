@@ -1,7 +1,20 @@
-export default function NavButton({ text }: { text: string }) {
+import Link from "next/link";
+
+export default function NavButton({
+  text,
+  link,
+}: {
+  text: string;
+  link: string;
+}) {
   return (
-    <li className="py-1 px-4 cursor-pointer text-neutral-300 font-semibold hover:text-white shadow-white transition-all ease-linear">
-      {text}
+    <li className="font-semibold ">
+      <Link
+        className="py-2 px-5 cursor-pointer text-neutral-400 hover:text-purple-100 transition-all ease-linear duration-200 rounded-full nav-button relative"
+        href={link}
+      >
+        {text}
+      </Link>
     </li>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import { ServerProvider } from "@/contexts/serverCtx";
+import { lato } from "@/styles/fonts";
 
 export const metadata: Metadata = {
   title: "Flare",
@@ -14,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body suppressHydrationWarning={true} className="bg-global text-white">
+      <body
+        suppressHydrationWarning={true}
+        className={`bg-global text-white ${lato.className} antialiased`}
+      >
         <ServerProvider>{children}</ServerProvider>
       </body>
     </html>
