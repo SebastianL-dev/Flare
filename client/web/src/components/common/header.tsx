@@ -5,8 +5,8 @@ import { FaArrowRight } from "react-icons/fa6";
 
 export default function Header() {
   return (
-    <header className="">
-      <div className="flex justify-between py-8 px-[20%] w-auto">
+    <header className="flex h-fit w-full">
+      <div className="flex justify-between py-8 mx-[20%] w-full">
         <Link
           className={`peer transition-all ${permanentMarker.className} text-[40px] hover:-rotate-[4deg] hover:scale-125 h-min ease-message-button duration-300`}
           href={"/"}

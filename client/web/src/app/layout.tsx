@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <body
         suppressHydrationWarning={true}
-        className={`bg-global text-white ${lato.className} antialiased`}
+        className={`bg-global text-white ${lato.className} antialiased min-h-screen grid`}
       >
         <ServerProvider>{children}</ServerProvider>
       </body>
