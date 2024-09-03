@@ -14,7 +14,9 @@ const config: Config = {
       boxShadow: {
         "button-hover": "0px 0px 30px 2px #a855f79c;",
         "button-default": "0px 0px 60px 2px #d400ff2c;",
+        "button-default-white": "0px 0px 60px 2px #ffffff2c;",
         "button-hover-1": "0px 0px 50px 2px #a855f76c;",
+        "button-hover-white": "0px 0px 50px 2px #ffffff7c;",
       },
       transitionTimingFunction: {
         bounce: "cubic-bezier(0.34, 1.56, 0.64, 1)",

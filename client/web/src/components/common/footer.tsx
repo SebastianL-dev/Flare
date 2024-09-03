@@ -14,16 +14,17 @@ export default function Footer() {
           <Link
             className={`peer transition-all ${permanentMarker.className} text-4xl hover:-rotate-[4deg] w-min hover:scale-110 ease-message-button duration-300`}
             href={"/"}
+            aria-label="Home logo"
           >
             Fl<span className="text-purple-500">a</span>re
             <span className="text-purple-500">!</span>
           </Link>
-          <p className="max-w-72 text-white text-opacity-75">
-            Wanna chat with new people? well, flare will be perfect for you. You
-            may should try it.
+          <p className="max-w-80 text-white text-opacity-50">
+            Talk with friends or meet new people! Save your chats by creating an
+            account, or join rooms to chat without signing up...
           </p>
         </aside>
-        <div className="flex gap-24">
+        <nav className="flex gap-24" aria-label="Footer navigation">
           <FooterButtonsSection
             tittle="Flare"
             buttons={[
@@ -48,8 +49,9 @@ export default function Footer() {
               { text: "Contact", link: "" },
             ]}
           />
-        </div>
+        </nav>
       </section>
+
       <section className="flex justify-between mx-[20%] items-center text-neutral-300 border-t-[1px] border-white border-opacity-15 py-8">
         <span className="text-sm">
           Made with ❤️ by{" "}
@@ -57,22 +59,26 @@ export default function Footer() {
             className="font-bold text-purple-400 hover:text-opacity-65 transition-all ease-linear duration-200"
             href={"https://github.com/SebastianL-dev"}
             target="blank"
+            rel="noopener noreferrer"
+            aria-label="Sebastián Lozano's GitHub"
           >
             Sebastián Lozano
           </Link>
         </span>
-        <ul className="flex gap-4">
+        <ul className="flex gap-4" aria-label="Social media links">
           <SocialMediaBtn
             link="https://www.instagram.com/sebastianlozano086"
             icon={
               <FaInstagram className="w-9 h-9 text-white text-opacity-35 hover:scale-[1.15] hover:text-opacity-80 duration-200 transition-all ease-linear cursor-pointer" />
             }
+            social="Instagram"
           />
           <SocialMediaBtn
             link="https://github.com/SebastianL-dev/Flare"
             icon={
               <FaGithub className="w-9 h-9 text-white text-opacity-35 hover:scale-[1.15] hover:text-opacity-80 duration-200 transition-all ease-linear cursor-pointer" />
             }
+            social="GitHub"
           />
         </ul>
       </section>

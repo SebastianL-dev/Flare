@@ -12,6 +12,7 @@ export default function NavButton({
       <Link
         className="py-2 px-5 cursor-pointer text-neutral-400 hover:text-purple-100 transition-all ease-linear duration-200 rounded-full nav-button relative"
         href={link}
+        aria-label={`${text} link`}
       >
         {text}
       </Link>
