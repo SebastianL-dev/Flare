@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaArrowRight, FaGithub, FaInstagram } from "react-icons/fa6";
+import { FaGithub, FaInstagram } from "react-icons/fa6";
 import FooterButtonsSection from "./footer/footerButtonsSection";
 import { permanentMarker } from "@/styles/fonts";
 import FooterCard from "./footer/footerCard";

@@ -1,12 +1,11 @@
 import { permanentMarker } from "@/styles/fonts";
-import NavButton from "./navButton";
+import NavButton from "./buttons/navButton";
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa6";
 import DefaultButton from "./buttons/defaultButton";
 
 export default function Header() {
   return (
-    <header className="flex h-fit w-full">
+    <header className="flex h-fit w-full fixed">
       <div className="flex justify-between py-8 mx-[20%] w-full">
         <Link
           className={`peer transition-all ${permanentMarker.className} text-[40px] hover:-rotate-[4deg] hover:scale-125 h-min ease-message-button duration-300`}
