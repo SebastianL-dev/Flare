@@ -1,12 +1,48 @@
+"use client";
+
 import { permanentMarker } from "@/styles/fonts";
 import NavButton from "./buttons/navButton";
 import Link from "next/link";
 import DefaultButton from "./buttons/defaultButton";
+import { useEffect, useState } from "react";
 
+// let lastScroll: number = 0;
 export default function Header() {
+  const [headerS, setHeaderS] = useState<string>("bg-transparent");
+  const [headerPadding, setHeaderPadding] = useState<string>("py-8");
+  const [headerTop, setHeaderTop] = useState<string>("top-0");
+  const [lastScroll, setLastScroll] = useState<number>(0);
+
+  useEffect(() => {
+    let scrollTop: number = document.documentElement.scrollTop;
+
+    const handleScroll = () => {
+      scrollTop > lastScroll
+        ? setHeaderTop("-top-[77px]")
+        : setHeaderTop("top-0");
+
+      setLastScroll(scrollTop);
+
+      window.scrollY == 0
+        ? (setHeaderS("bg-transparent"), setHeaderPadding("py-8"))
+        : (setHeaderS("bg-[#120022] bg-opacity-60 backdrop-blur-[6px]"),
+          setHeaderPadding("py-2"));
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
   return (
-    <header className="flex h-fit w-full fixed">
-      <div className="flex justify-between py-8 mx-[20%] w-full">
+    <header
+      className={`flex h-fit w-full fixed ${headerS} ${headerTop} transition-all ease-linear duration-200 z-50`}
+    >
+      <div
+        className={`flex justify-between mx-[20%] w-full ${headerPadding} transition-all ease-linear`}
+      >
         <Link
           className={`peer transition-all ${permanentMarker.className} text-[40px] hover:-rotate-[4deg] hover:scale-125 h-min ease-message-button duration-300`}
           href={"/"}

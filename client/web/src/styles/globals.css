@@ -20,6 +20,10 @@ body::-webkit-scrollbar {
     background: #8400ff;
     background: radial-gradient(at left center, #8400ff33 0%, #00000000 50%);
   }
+  .bg-card-right {
+    background: #8400ff;
+    background: radial-gradient(at right center, #8400ff33 0%, #00000000 60%);
+  }
   .chat-scroll::-webkit-scrollbar-thumb {
     background-color: #a955f777;
     border-radius: 99999px;
@@ -71,5 +75,9 @@ body::-webkit-scrollbar {
   .footer {
     background: a855f7;
     background: linear-gradient(135deg, #753aff 0%, #c534ff 100%);
+  }
+  .image-shadow {
+    filter: drop-shadow(3px 3px 10px #000000);
+    /* filter: drop-shadow(3px 3px 3px #a955f721); */
   }
 }
