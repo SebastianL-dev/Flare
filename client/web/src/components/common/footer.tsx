@@ -4,20 +4,17 @@ import FooterButtonsSection from "./footer/footerButtonsSection";
 import { permanentMarker } from "@/styles/fonts";
 import FooterCard from "./footer/footerCard";
 import SocialMediaBtn from "./buttons/socialMediaBtn";
+import Image from "next/image";
+import TextLogoWhite from "@/../public/images/logos/svg/Text-Logo-White.svg";
 
 export default function Footer() {
   return (
     <footer className="mt-auto bg-opacity-5 gap-16 grid bg-purple-400 pt-64">
       <section className="mx-[20%] flex items-start justify-between relative">
         <FooterCard />
-        <aside className="flex flex-col gap-2">
-          <Link
-            className={`peer transition-all ${permanentMarker.className} text-4xl hover:-rotate-[4deg] w-min hover:scale-110 ease-message-button duration-300`}
-            href={"/"}
-            aria-label="Home logo"
-          >
-            Fl<span className="text-purple-500">a</span>re
-            <span className="text-purple-500">!</span>
+        <aside className="flex flex-col gap-4">
+          <Link className={`text-4xl w-fit`} href={"/"} aria-label="Home logo">
+            <Image width={130} height={130} src={TextLogoWhite} alt="" />
           </Link>
           <p className="max-w-80 text-white text-opacity-50">
             Talk with friends or meet new people! Save your chats by creating an

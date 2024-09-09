@@ -4,8 +4,11 @@ import { ServerProvider } from "@/contexts/serverCtx";
 import { lato } from "@/styles/fonts";
 
 export const metadata: Metadata = {
-  title: "Flare",
+  title: "Flare | Home",
   description: "Chat now with all of your friends!",
+  icons: {
+    icon: "/images/logos/ico/Logo-Purple.ico",
+  },
 };
 
 export default function RootLayout({

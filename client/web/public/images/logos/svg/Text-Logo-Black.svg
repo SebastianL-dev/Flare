@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="287.55713mm"
+   height="75.477394mm"
+   viewBox="0 0 287.55712 75.477394"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="Logo-White .svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(771.45395,284.43474)">
+    <rect
+       style="display:none;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:1.03666;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect9"
+       width="538.96027"
+       height="494.70212"
+       x="-785.05389"
+       y="-297.02371"
+       ry="3.5527906"
+       sodipodi:insensitive="true"
+       inkscape:label="BG" />
+    <g
+       id="g9"
+       inkscape:label="Black Logo Full"
+       transform="translate(1.2083333e-5,-1.3125e-5)"
+       style="display:inline">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1"
+         width="6.6119132"
+         height="52.537907"
+         x="-721.42542"
+         y="318.2684"
+         ry="3.3059566"
+         transform="rotate(45)" />
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1-25"
+         width="6.6119132"
+         height="15.613061"
+         x="-251.05034"
+         y="755.27814"
+         ry="3.9160583"
+         transform="rotate(90)" />
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1-25-6"
+         width="6.6119132"
+         height="15.613061"
+         x="-248.62167"
+         y="711.62653"
+         ry="3.9160583"
+         transform="rotate(90)" />
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.600001;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         id="rect1-4"
+         width="6.6119132"
+         height="52.537907"
+         x="-682.14978"
+         y="328.86349"
+         ry="3.3059566"
+         transform="rotate(45)" />
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1-4-0"
+         width="6.6119132"
+         height="40.564983"
+         x="-738.23163"
+         y="-283.65833"
+         ry="4.2639327" />
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1-4-0-1"
+         width="6.6119132"
+         height="40.564983"
+         x="744.31537"
+         y="209.45734"
+         ry="4.2639327"
+         transform="scale(-1)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:78.645px;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         x="-701.78418"
+         y="-218.92204"
+         id="text3"><tspan
+           sodipodi:role="line"
+           id="tspan3"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:78.645px;font-family:'Segoe Print';-inkscape-font-specification:'Segoe Print, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+           x="-701.78418"
+           y="-218.92204">Flare!</tspan></text>
+    </g>
+  </g>
+</svg>

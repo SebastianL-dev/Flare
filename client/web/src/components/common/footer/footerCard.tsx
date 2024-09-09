@@ -14,7 +14,11 @@ export default function FooterCard() {
         </p>
       </section>
 
-      <DefaultButton text="Let's Chat" color="white" />
+      <DefaultButton
+        text="Let's Chat"
+        color="white"
+        aria="Start chatting now"
+      />
     </article>
   );
 }

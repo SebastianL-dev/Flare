@@ -3,9 +3,11 @@ import { FaArrowRight } from "react-icons/fa6";
 export default function DefaultButton({
   text,
   color,
+  aria,
 }: {
   text: string;
   color: string;
+  aria: string;
 }) {
   const style =
     color == "purple"
@@ -15,7 +17,7 @@ export default function DefaultButton({
   return (
     <button
       className={`flex self-center ${style} bg-opacity-10 border-2 h-min px-7 py-2 rounded-full font-bold items-center relative overflow-hidden group default-transition duration-500`}
-      aria-label="Download app"
+      aria-label={aria}
     >
       <span className=" transition-all ease-linear group-hover:-translate-x-2">
         {text}
