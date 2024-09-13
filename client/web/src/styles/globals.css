@@ -82,4 +82,19 @@ body::-webkit-scrollbar {
   .logo {
     filter: drop-shadow(0px 0px 20px #a855f7);
   }
+  .clip-path-poligon {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .card-features-purple-1 {
+    background: rgb(109, 0, 255);
+    background: linear-gradient(90deg, #3a8fff 0%, #753aff 100%);
+  }
+  .card-features-purple-2 {
+    background: rgb(109, 0, 255);
+    background: linear-gradient(90deg, #753aff 0%, #c534ff 100%);
+  }
+  .card-features-purple-3 {
+    background: rgb(109, 0, 255);
+    background: linear-gradient(90deg, #c534ff 0%, #ff34cc 100%);
+  }
 }

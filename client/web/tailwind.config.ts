@@ -17,6 +17,7 @@ const config: Config = {
         "button-default-white": "0px 0px 60px 2px #ffffff2c;",
         "button-hover-1": "0px 0px 50px 2px #a855f76c;",
         "button-hover-white": "0px 0px 50px 2px #ffffff5c;",
+        "feature-card": "0px 20px 30px 0px #a855f700;",
       },
       transitionTimingFunction: {
         bounce: "cubic-bezier(0.34, 1.56, 0.64, 1)",
