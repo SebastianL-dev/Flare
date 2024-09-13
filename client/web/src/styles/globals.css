@@ -97,4 +97,21 @@ body::-webkit-scrollbar {
     background: rgb(109, 0, 255);
     background: linear-gradient(90deg, #c534ff 0%, #ff34cc 100%);
   }
+  .learn-more-button::before {
+    content: "";
+    left: 0;
+    bottom: -2px;
+    background-color: #a855f7;
+    height: 2px;
+    width: 60%;
+    border-radius: 9999px;
+    position: absolute;
+    transition: all ease 0.3s;
+  }
+  .learn-more-button:hover::before {
+    width: 96%;
+  }
+  .learn-more-button {
+    transition: color 0.4s, gap 0.2s;
+  }
 }

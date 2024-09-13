@@ -14,7 +14,6 @@ export const runtime = "edge";
 
 export default function Home() {
   return (
-    // FIXME: Fix HTML sematic, add aria labels and others
     <>
       <Header />
       <main className="mx-[20%] pt-44 pb-96 grid gap-60">
@@ -68,6 +67,8 @@ export default function Home() {
             tittle="Say hello! Start chatting with anyone, anytime."
             text="Create an account now to keep your conversations secure and save
               your chat history. Explore all the features Flare has to offer!"
+            link="/"
+            info="Flare"
           />
           <div className="max-w-1/2 w-1/2"></div>
         </section>
@@ -89,7 +90,7 @@ export default function Home() {
                 </p>
               }
               link="/"
-              info="rooms"
+              info="Flare rooms"
               icon={<FaDoorOpen className="h-6 w-6 text-neutral-300" />}
             />
             <HomeCard
@@ -111,7 +112,7 @@ export default function Home() {
                 </>
               }
               link="/"
-              info="accounts"
+              info="Flare accounts"
               icon={
                 <MdOutlineSwitchAccount className="h-6 w-6 text-neutral-300" />
               }
@@ -134,7 +135,7 @@ export default function Home() {
                 </p>
               }
               link="/"
-              info="desktop and mobile apps"
+              info="Flare desktop and mobile app"
               icon={<RiApps2AddLine className="h-6 w-6 text-neutral-300" />}
             />
           </div>
@@ -148,6 +149,8 @@ export default function Home() {
               friends.No need for an account! Just jump into a room, chat, and
               even meet new people! However, keep in mind that conversations in
               rooms aren't saved."
+            link="/"
+            info="Flare rooms"
           />
         </section>
       </main>

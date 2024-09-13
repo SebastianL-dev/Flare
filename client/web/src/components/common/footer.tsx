@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { FaGithub, FaInstagram } from "react-icons/fa6";
 import FooterButtonsSection from "./footer/footerButtonsSection";
-import { permanentMarker } from "@/styles/fonts";
 import FooterCard from "./footer/footerCard";
-import SocialMediaBtn from "./buttons/socialMediaBtn";
+import SocialMediaBtn from "./buttons/socialMediaButton";
 import Image from "next/image";
 import TextLogoWhite from "@/../public/images/logos/svg/Text-Logo-White.svg";
 
@@ -14,7 +13,12 @@ export default function Footer() {
         <FooterCard />
         <aside className="flex flex-col gap-4">
           <Link className={`text-4xl w-fit`} href={"/"} aria-label="Home logo">
-            <Image width={130} height={130} src={TextLogoWhite} alt="" />
+            <Image
+              width={130}
+              height={130}
+              src={TextLogoWhite}
+              alt="Flare's logo with text in white"
+            />
           </Link>
           <p className="max-w-80 text-white text-opacity-50">
             Talk with friends or meet new people! Save your chats by creating an
