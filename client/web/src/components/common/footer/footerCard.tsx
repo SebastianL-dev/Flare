@@ -6,7 +6,7 @@ export default function FooterCard() {
     <article className="flex flex-col items-center py-12 footer gap-10 absolute inset-0 h-fit -top-[calc(220%_+_96px_)] rounded-xl ">
       <section className="flex flex-col gap-4">
         <h2 className="font-black text-center text-4xl">
-          Still scrolling? <br /> Let's go to the party!
+          Still scrolling? <br /> Let&apos;s go to the party!
         </h2>
         <p className="text-center text-lg max-w-[580px] text-white text-opacity-85">
           Maybe you should stop scrolling... you already reach the end of this

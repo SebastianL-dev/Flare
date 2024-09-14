@@ -26,7 +26,7 @@ export default function HomeCard({
     } else {
       setColor("card-features-purple-3");
     }
-  });
+  }, [info]);
 
   return (
     <article className="group bg-neutral-900 relative border-2 border-neutral-800 rounded-xl overflow-hidden w-[33%] h-full flex flex-col shadow-feature-card hover:scale-105 transition-all ease-bounce duration-500">

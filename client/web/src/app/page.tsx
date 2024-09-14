@@ -25,9 +25,9 @@ export default function Home() {
                 whenever you want!
               </h1>
               <p className="max-w-[550px] text-neutral-300 text-opacity-70 font-medium">
-                Connect with friends and meet new people now. Explore "The
-                Rooms" and start your new adventure. No account needed in rooms,
-                just join in one and dive into the conversation!
+                Connect with friends and meet new people now. Explore &quot;The
+                Rooms&quot; and start your new adventure. No account needed in
+                rooms, just join in one and dive into the conversation!
               </p>
             </div>
             <div className="flex gap-8">
@@ -98,12 +98,14 @@ export default function Home() {
               text={
                 <>
                   <p className="text-base text-white text-opacity-60">
-                    In rooms, your chat history isn't saved, but by creating an{" "}
+                    In rooms, your chat history isn&apos;t saved, but by
+                    creating an{" "}
                     <strong className="text-white text-opacity-75">
                       account
                     </strong>
                     , you can save your conversations and send direct messages
-                    to your friends. Don't wait anymore, create an account and{" "}
+                    to your friends. Don&apos;t wait anymore, create an account
+                    and{" "}
                     <strong className="text-white text-opacity-75">
                       start chatting now
                     </strong>
@@ -145,10 +147,10 @@ export default function Home() {
             icon={<FaDoorOpen className="h-5 w-5" />}
             infoText="The Rooms"
             tittle="The Rooms? A new place to stay?"
-            text="'The Rooms' provide a fast and easy way to chat with your
+            text='"The Rooms" provide a fast and easy way to chat with your
               friends.No need for an account! Just jump into a room, chat, and
               even meet new people! However, keep in mind that conversations in
-              rooms aren't saved."
+              rooms aren&apos;t saved.'
             link="/"
             info="Flare rooms"
           />

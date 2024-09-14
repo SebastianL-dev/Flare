@@ -44,7 +44,7 @@ export default function RoomChat() {
       socket?.off("recieveMessage");
       socket?.off("userConnected");
     };
-  }, []);
+  }, [socket]);
 
   const SendMessage = () => {
     socket?.emit("sendMessage", {
