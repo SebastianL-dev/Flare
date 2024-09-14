@@ -19,9 +19,9 @@ export default function HomeCard({
   const [color, setColor] = useState<string>("");
 
   useEffect(() => {
-    if (info == "rooms") {
+    if (info == "Flare rooms") {
       setColor("card-features-purple-1");
-    } else if (info == "accounts") {
+    } else if (info == "Flare accounts") {
       setColor("card-features-purple-2");
     } else {
       setColor("card-features-purple-3");
@@ -29,7 +29,7 @@ export default function HomeCard({
   }, [info]);
 
   return (
-    <article className="group bg-neutral-900 relative border-2 border-neutral-800 rounded-xl overflow-hidden w-[33%] h-full flex flex-col shadow-feature-card hover:scale-105 transition-all ease-bounce duration-500">
+    <article className="group max-lg:h-max max-lg:w-full bg-neutral-900 relative border-2 border-neutral-800 rounded-xl overflow-hidden w-[33%] h-full flex flex-col shadow-feature-card hover:scale-105 transition-all ease-bounce duration-500">
       <div className={`flex w-full min-h-2 h-2 ${color}`}></div>
       <div className="flex flex-grow flex-col h-max gap-4 p-4 mt-">
         <header className="flex flex-col gap-2">

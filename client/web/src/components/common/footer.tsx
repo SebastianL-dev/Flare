@@ -9,9 +9,9 @@ import TextLogoWhite from "@/../public/images/logos/svg/Text-Logo-White.svg";
 export default function Footer() {
   return (
     <footer className="mt-auto bg-opacity-5 gap-16 grid bg-purple-400 pt-64">
-      <section className="mx-[20%] flex items-start justify-between relative">
+      <section className="mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] max-lg:flex-col max-lg:gap-12 flex items-start justify-between relative">
         <FooterCard />
-        <aside className="flex flex-col gap-4">
+        <aside className="flex flex-col gap-4 max-lg:items-center max-lg:pb-4 max-lg:border-b-2 max-[400px]:items-start border-purple-400 border-opacity-30">
           <Link className={`text-4xl w-fit`} href={"/"} aria-label="Home logo">
             <Image
               width={130}
@@ -20,12 +20,15 @@ export default function Footer() {
               alt="Flare's logo with text in white"
             />
           </Link>
-          <p className="max-w-80 text-white text-opacity-50">
+          <p className="max-w-80 text-white text-opacity-50 max-lg:max-w-full max-lg:text-center max-[400px]:text-left">
             Talk with friends or meet new people! Save your chats by creating an
             account, or join rooms to chat without signing up...
           </p>
         </aside>
-        <nav className="flex gap-24" aria-label="Footer navigation">
+        <nav
+          className="flex gap-24 max-lg:w-full max-lg:gap-0 max-lg:justify-between max-[400px]:flex-col max-[400px]:gap-8"
+          aria-label="Footer navigation"
+        >
           <FooterButtonsSection
             tittle="Flare"
             buttons={[
@@ -53,7 +56,7 @@ export default function Footer() {
         </nav>
       </section>
 
-      <section className="flex justify-between mx-[20%] items-center text-neutral-300 border-t-[1px] border-white border-opacity-15 py-8">
+      <section className="flex justify-between mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] items-center text-neutral-300 border-t-[1px] border-white border-opacity-15 py-8">
         <span className="text-sm">
           Made with ❤️ by{" "}
           <Link

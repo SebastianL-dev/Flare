@@ -16,7 +16,7 @@ export default function HomeInfo({
   info: string;
 }) {
   return (
-    <div className="max-w-1/2 w-1/2 flex flex-col gap-4">
+    <div className="max-w-1/2 w-1/2 flex flex-col gap-4 max-lg:w-full ">
       <div className="flex gap-2 opacity-50 items-center">
         <div className="flex bg-white bg-opacity-10 border-white border-2 border-opacity-50 rounded-md w-9 h-9 items-center justify-center">
           {icon}

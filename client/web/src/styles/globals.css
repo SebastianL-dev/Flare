@@ -25,14 +25,10 @@ body::-webkit-scrollbar {
     background: radial-gradient(at right center, #8400ff33 0%, #00000000 60%);
   }
   .chat-scroll::-webkit-scrollbar-thumb {
-    background-color: #a955f777;
-    border-radius: 99999px;
+    @apply bg-[#a955f777] rounded-[99999px];
   }
   .chat-scroll::-webkit-scrollbar {
-    width: 4px;
-    background-color: transparent;
-    background-color: #d19fff13;
-    border-radius: 99999px;
+    @apply w-1 bg-transparent bg-[#d19fff13] rounded-[99999px];
   }
   .default-transition {
     transition: scale cubic-bezier(0.68, -0.6, 0.32, 1.6) 0.4s,
@@ -53,14 +49,8 @@ body::-webkit-scrollbar {
       opacity linear 0.3s;
   }
   .nav-button::before {
-    content: "";
-    inset: 0;
-    position: absolute;
-    background-color: #a855f7;
-    z-index: -10;
-    border-radius: 99999px;
+    @apply content-[""] absolute bg-purple-500 -z-10 opacity-0 rounded-[99999px] inset-0;
     scale: 0;
-    opacity: 0;
     transition: scale 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
       opacity 0.2s linear, shadow 0.5s linear;
   }
@@ -68,9 +58,8 @@ body::-webkit-scrollbar {
     text-shadow: 0px 0px 15px #a855f7;
   }
   .nav-button:hover::before {
+    @apply opacity-[0.15] shadow-[0px_0px_30px_2px_#a855f7];
     scale: 1;
-    opacity: 0.15;
-    box-shadow: 0px 0px 30px 2px #a855f7;
   }
   .footer {
     background: a855f7;
@@ -98,20 +87,27 @@ body::-webkit-scrollbar {
     background: linear-gradient(90deg, #c534ff 0%, #ff34cc 100%);
   }
   .learn-more-button::before {
-    content: "";
-    left: 0;
-    bottom: -2px;
-    background-color: #a855f7;
-    height: 2px;
-    width: 60%;
-    border-radius: 9999px;
-    position: absolute;
-    transition: all ease 0.3s;
+    @apply content-[""] bg-purple-500 h-0.5 w-3/5 absolute transition-all duration-300 rounded-full left-0 -bottom-0.5;
   }
   .learn-more-button:hover::before {
-    width: 96%;
+    @apply w-[96%];
   }
   .learn-more-button {
     transition: color 0.4s, gap 0.2s;
+  }
+  #checkbox:checked + .toggle .bars {
+    @apply absolute duration-500;
+  }
+  #checkbox:checked + .toggle #bar2 {
+    @apply duration-500 scale-x-0;
+  }
+  #checkbox:checked + .toggle #bar1 {
+    @apply w-full rotate-45 duration-500;
+  }
+  #checkbox:checked + .toggle #bar3 {
+    @apply w-full -rotate-45 duration-500;
+  }
+  #checkbox:checked + .toggle {
+    @apply duration-500 rotate-180;
   }
 }

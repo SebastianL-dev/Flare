@@ -16,21 +16,21 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="mx-[20%] pt-44 pb-96 grid gap-60">
-        <section className="my-16 rounded-xl flex items-center bg-card-right justify-between gap-8">
-          <div className="max-w-[50%] flex flex-col gap-16">
+      <main className="mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] pt-44 pb-96 grid gap-60">
+        <section className="my-16 rounded-xl flex items-center lg:bg-card-right justify-between gap-8">
+          <div className="max-w-[50%] flex flex-col gap-16 max-lg:max-w-full">
             <div className="flex flex-col gap-4">
-              <h1 className="font-black text-5xl max-w-[500px]">
+              <h1 className="font-black text-5xl max-w-[500px] max-lg:max-w-full max-lg:text-center">
                 Chat with <span className="text-purple-500">everyone</span>{" "}
                 whenever you want!
               </h1>
-              <p className="max-w-[550px] text-neutral-300 text-opacity-70 font-medium">
+              <p className="max-w-[550px] text-neutral-300 text-opacity-70 font-medium max-lg:max-w-full max-lg:text-center">
                 Connect with friends and meet new people now. Explore &quot;The
                 Rooms&quot; and start your new adventure. No account needed in
                 rooms, just join in one and dive into the conversation!
               </p>
             </div>
-            <div className="flex gap-8">
+            <div className="flex gap-8 max-lg:justify-center">
               <DefaultButton
                 text="Start now!"
                 color="purple"
@@ -43,7 +43,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="flex flex-col gap-4 min-w-96">
+          <div className="flex flex-col gap-4 min-w-96 max-lg:hidden">
             <Image
               className="image-shadow"
               width={"400"}
@@ -53,7 +53,7 @@ export default function Home() {
             />
           </div>
         </section>
-        <section className="flex justify-between">
+        <section className="flex justify-between max-lg:flex-col max-lg:items-center">
           <HomeInfo
             icon={
               <Image
@@ -74,7 +74,7 @@ export default function Home() {
         </section>
         <section className="flex flex-col items-center gap-16">
           <h2 className="text-4xl font-black">Amazing features</h2>
-          <div className="flex gap-8">
+          <div className="flex gap-8 max-lg:flex-col items-center">
             <HomeCard
               tittle="The Rooms - Fastest way to chat"
               text={
