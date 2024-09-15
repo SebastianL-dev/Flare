@@ -10,13 +10,13 @@ import { RiApps2AddLine } from "react-icons/ri";
 import FlareLogoWhite from "@/../public/images/logos/svg/Logo-White.svg";
 import HomeInfo from "@/components/homeInfo";
 import SchemaMarkUp from "@/components/schemaMarkUp";
+import Head from "next/head";
 
 export const runtime = "edge";
 
 export default function Home() {
   return (
     <>
-      <SchemaMarkUp />
       <Header />
       <main className="mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] pt-44 pb-96 grid gap-60">
         <section className="my-16 rounded-xl flex items-center lg:bg-card-right justify-between gap-8">
