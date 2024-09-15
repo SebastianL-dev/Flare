@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 import { ServerProvider } from "@/contexts/serverCtx";
 import { lato } from "@/styles/fonts";
+import SchemaMarkUp from "@/components/schemaMarkUp";
 
 export const metadata: Metadata = {
   title: "Flare | Home",
@@ -22,7 +23,10 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`bg-global text-white ${lato.className} antialiased min-h-screen grid`}
       >
-        <ServerProvider>{children}</ServerProvider>
+        <ServerProvider>
+          <SchemaMarkUp />
+          {children}
+        </ServerProvider>
       </body>
     </html>
   );

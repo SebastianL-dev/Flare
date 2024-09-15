@@ -20,7 +20,7 @@ export default function Home() {
         <section className="my-16 rounded-xl flex items-center lg:bg-card-right justify-between gap-8">
           <div className="max-w-[50%] flex flex-col gap-16 max-lg:max-w-full">
             <div className="flex flex-col gap-4">
-              <h1 className="font-black text-5xl max-w-[500px] max-lg:max-w-full max-lg:text-center">
+              <h1 className="font-black text-5xl w-[500px] max-lg:w-full max-lg:text-center">
                 Chat with <span className="text-purple-500">everyone</span>{" "}
                 whenever you want!
               </h1>
