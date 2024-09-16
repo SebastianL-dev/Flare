@@ -47,9 +47,9 @@ export default function Rooms() {
                 <strong className="text-white text-opacity-75">
                   The rooms
                 </strong>{" "}
-                are here for you. No accounts, no sign-ups. It's the{" "}
+                are here for you. No accounts, no sign-ups. It&apos;s the{" "}
                 <strong className="text-white text-opacity-75">fastest</strong>{" "}
-                way to get in touch with friends, whether you're planning,
+                way to get in touch with friends, whether you&apos;re planning,
                 catching up, or just want to say hi.
               </p>
             </div>
