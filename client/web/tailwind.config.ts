@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundColor: {
-        global: "#0e001b",
+        global: "#0b0016",
       },
       boxShadow: {
         "button-hover": "0px 0px 30px 2px #a855f79c;",

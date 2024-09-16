@@ -6,7 +6,6 @@ import DefaultButton from "./buttons/defaultButton";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import DefaultLogo2 from "@/../public/images/logos/svg/Text-Logo-Default-2.svg";
-import { FaArrowRight } from "react-icons/fa6";
 
 export default function Header() {
   const [headerS, setHeaderS] = useState<string>(
@@ -51,7 +50,7 @@ export default function Header() {
         className={`flex justify-between mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] w-full ${headerPadding} transition-all ease-linear`}
       >
         <Link
-          className={`text-[40px] h-min logo`}
+          className={`text-[40px] h-min logo hover:scale-105 transition-all ease-linear`}
           href={"/"}
           aria-label="Home logo"
         >
@@ -70,23 +69,20 @@ export default function Header() {
           <ul className="flex gap-4">
             <NavButton text="Discover" link="/" />
             <NavButton text="Chat" link="/" />
-            <NavButton text="Rooms" link="/" />
+            <NavButton text="Rooms" link="/rooms" />
             <NavButton text="Support" link="/" />
             <NavButton text="Team" link="/" />
           </ul>
         </nav>
 
         <div className="flex gap-4">
-          <Link
-            className="flex self-center max-[450px]:hidden bg-purple-500 hover:bg-opacity-30 hover:text-purple-100 border-purple-500 text-neutral-200 hover:shadow-button-hover-1 shadow-button-default bg-opacity-10 border-2 h-min px-7 py-2 rounded-full font-bold items-center relative overflow-hidden group default-transition duration-500"
-            href={"/"}
-            aria-label="Download Flare app"
-          >
-            <span className=" transition-all ease-linear group-hover:-translate-x-2">
-              Download
-            </span>
-            <FaArrowRight className="w-4 h-4 transition-all ease-linear absolute top-1/2 -translate-y-1/2 -right-2 opacity-0 group-hover:right-3 group-hover:opacity-100" />
-          </Link>
+          <DefaultButton
+            text="Download"
+            color="purple"
+            aria="Download Flare application"
+            link="/"
+            hide="max-[450px]:hidden"
+          />
 
           <input className="hidden" type="checkbox" id="checkbox" />
           <label

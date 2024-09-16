@@ -35,7 +35,7 @@ export default function Footer() {
               { text: "Download", link: "" },
               { text: "Chat", link: "" },
               { text: "Create account", link: "" },
-              { text: "Rooms", link: "" },
+              { text: "Rooms", link: "/rooms" },
             ]}
           />
           <FooterButtonsSection

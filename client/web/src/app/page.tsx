@@ -9,8 +9,6 @@ import { MdOutlineSwitchAccount } from "react-icons/md";
 import { RiApps2AddLine } from "react-icons/ri";
 import FlareLogoWhite from "@/../public/images/logos/svg/Logo-White.svg";
 import HomeInfo from "@/components/homeInfo";
-import SchemaMarkUp from "@/components/schemaMarkUp";
-import Head from "next/head";
 
 export const runtime = "edge";
 
@@ -27,9 +25,16 @@ export default function Home() {
                 whenever you want!
               </h1>
               <p className="max-w-[550px] text-neutral-300 text-opacity-70 font-medium max-lg:max-w-full max-lg:text-center">
-                Connect with friends and meet new people now. Explore &quot;The
-                Rooms&quot; and start your new adventure. No account needed in
-                rooms, just join in one and dive into the conversation!
+                Connect with friends and meet new people now. Explore{" "}
+                <strong className="text-white text-opacity-75">
+                  &quot;The Rooms&quot;
+                </strong>{" "}
+                and start your new adventure.{" "}
+                <strong className="text-white text-opacity-75">
+                  No account
+                </strong>{" "}
+                needed in rooms, just join in one and dive into the
+                conversation!
               </p>
             </div>
             <div className="flex gap-8 max-lg:justify-center">
@@ -37,11 +42,13 @@ export default function Home() {
                 text="Start now!"
                 color="purple"
                 aria="Start chatting now"
+                link="/"
               />
               <DefaultButton
                 text="More"
                 color="white"
                 aria="Learn more about Flare's features"
+                link="/"
               />
             </div>
           </div>
@@ -55,6 +62,7 @@ export default function Home() {
             />
           </div>
         </section>
+
         <section className="flex justify-between max-lg:flex-col max-lg:items-center">
           <HomeInfo
             icon={
@@ -74,6 +82,7 @@ export default function Home() {
           />
           <div className="max-w-1/2 w-1/2"></div>
         </section>
+
         <section className="flex flex-col items-center gap-16">
           <h2 className="text-4xl font-black">Amazing features</h2>
           <div className="flex gap-8 max-lg:flex-col items-center">
@@ -83,15 +92,15 @@ export default function Home() {
                 <p className="text-base text-white text-opacity-50">
                   Did you know you can chat with friends without an account?
                   With{" "}
-                  <strong className="text-white text-opacity-65">rooms</strong>,
+                  <strong className="text-white text-opacity-75">rooms</strong>,
                   all you need is your name and a{" "}
-                  <strong className="text-white text-opacity-65">
+                  <strong className="text-white text-opacity-75">
                     room ID
                   </strong>{" "}
                   to join a conversation with friends.
                 </p>
               }
-              link="/"
+              link="/rooms"
               info="Flare rooms"
               icon={<FaDoorOpen className="h-6 w-6 text-neutral-300" />}
             />
@@ -144,6 +153,7 @@ export default function Home() {
             />
           </div>
         </section>
+
         <section className="flex justify-between flex-row-reverse">
           <HomeInfo
             icon={<FaDoorOpen className="h-5 w-5" />}
@@ -153,7 +163,7 @@ export default function Home() {
               friends.No need for an account! Just jump into a room, chat, and
               even meet new people! However, keep in mind that conversations in
               rooms aren&apos;t saved.'
-            link="/"
+            link="/rooms"
             info="Flare rooms"
           />
         </section>

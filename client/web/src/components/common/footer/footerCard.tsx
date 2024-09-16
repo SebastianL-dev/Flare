@@ -17,6 +17,7 @@ export default function FooterCard() {
         text="Let's Chat"
         color="white"
         aria="Start chatting now"
+        link="/"
       />
     </article>
   );
