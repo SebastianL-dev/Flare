@@ -45,6 +45,7 @@ export default function RootLayout({
       <body
         suppressHydrationWarning={true}
         className={`bg-global text-white ${lato.className} antialiased min-h-screen grid`}
+        rel="preload"
       >
         <ServerProvider>{children}</ServerProvider>
       </body>

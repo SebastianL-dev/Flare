@@ -43,7 +43,7 @@ export default function Home() {
                 Chat with <span className="text-purple-500">everyone</span>{" "}
                 whenever you want!
               </h1>
-              <p className="max-w-[550px] text-neutral-300 text-opacity-70 font-medium max-lg:max-w-full max-lg:text-center">
+              <p className="w-full text-neutral-300 text-opacity-70 max-lg:text-center">
                 Connect with friends and meet new people now. Explore{" "}
                 <strong className="text-white text-opacity-75">
                   The Rooms
