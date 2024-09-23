@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import "../styles/globals.css";
+import "../../public/styles/globals.css";
 import { ServerProvider } from "@/contexts/serverCtx";
-import { lato } from "@/styles/fonts";
+import { lato } from "../../public/styles/fonts";
 import SchemaMarkUp from "@/components/schemaMarkUp";
 
 export const metadata: Metadata = {
