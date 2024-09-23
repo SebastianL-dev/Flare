@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import LearnMoreButton from "./common/buttons/learnMoreButton";
+import LearnMoreButton from "./common/buttons/textButton";
 
 export default function HomeCard({
   tittle,
@@ -9,12 +9,14 @@ export default function HomeCard({
   link,
   info,
   icon,
+  button,
 }: {
   tittle: string;
   text: React.ReactElement;
   link: string;
   info: string;
   icon: React.ReactElement;
+  button: string;
 }) {
   const [color, setColor] = useState<string>("");
 
@@ -42,7 +44,7 @@ export default function HomeCard({
         </header>
         <div className="flex flex-col gap-8 justify-between h-full">
           {text}
-          <LearnMoreButton link={link} info={info} />
+          <LearnMoreButton link={link} info={info} text={button} />
         </div>
       </div>
     </article>

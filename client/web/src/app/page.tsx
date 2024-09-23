@@ -1,3 +1,5 @@
+"use client";
+
 import DefaultButton from "@/components/common/buttons/defaultButton";
 import Footer from "@/components/common/footer";
 import Header from "@/components/common/header";
@@ -9,25 +11,42 @@ import { MdOutlineSwitchAccount } from "react-icons/md";
 import { RiApps2AddLine } from "react-icons/ri";
 import FlareLogoWhite from "@/../public/images/logos/svg/Logo-White.svg";
 import HomeInfo from "@/components/homeInfo";
+import { useEffect, useState } from "react";
 
 export const runtime = "edge";
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleSize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    window.addEventListener("resize", handleSize);
+    window.addEventListener("load", handleSize);
+
+    return () => {
+      window.removeEventListener("resize", handleSize);
+      window.removeEventListener("load", handleSize);
+    };
+  });
+
   return (
     <>
       <Header />
       <main className="mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] pt-44 pb-96 grid gap-60">
         <section className="my-16 rounded-xl flex items-center lg:bg-card-right justify-between gap-8">
           <div className="max-w-[50%] flex flex-col gap-16 max-lg:max-w-full">
-            <div className="flex flex-col gap-4">
-              <h1 className="font-black text-5xl w-[500px] max-lg:w-full max-lg:text-center">
+            <div className="flex flex-col gap-4 max-lg:items-center">
+              <h1 className="font-black text-5xl max-w-[500px] max-lg:text-4xl max-lg:w-full max-lg:text-center">
                 Chat with <span className="text-purple-500">everyone</span>{" "}
                 whenever you want!
               </h1>
               <p className="max-w-[550px] text-neutral-300 text-opacity-70 font-medium max-lg:max-w-full max-lg:text-center">
                 Connect with friends and meet new people now. Explore{" "}
                 <strong className="text-white text-opacity-75">
-                  &quot;The Rooms&quot;
+                  The Rooms
                 </strong>{" "}
                 and start your new adventure.{" "}
                 <strong className="text-white text-opacity-75">
@@ -41,7 +60,7 @@ export default function Home() {
               <DefaultButton
                 text="Start now!"
                 color="purple"
-                aria="Start chatting now"
+                aria="Start chatting now with Flare"
                 link="/"
               />
               <DefaultButton
@@ -52,15 +71,20 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="flex flex-col gap-4 min-w-96 max-lg:hidden">
-            <Image
-              className="image-shadow"
-              width={"400"}
-              height={"400"}
-              src={ChatImg}
-              alt="Illustration of people chatting and joining in a chat room"
-            />
-          </div>
+          {!isMobile ? (
+            <div className="flex flex-col gap-4 min-w-96 max-lg:hidden">
+              <Image
+                className="image-shadow"
+                width={"400"}
+                height={"400"}
+                src={ChatImg}
+                alt="Illustration of people chatting and joining in a chat room"
+                loading="eager"
+              />
+            </div>
+          ) : (
+            <></>
+          )}
         </section>
 
         <section className="flex justify-between max-lg:flex-col max-lg:items-center">
@@ -79,6 +103,7 @@ export default function Home() {
               your chat history. Explore all the features Flare has to offer!"
             link="/"
             info="Flare"
+            button="About flare"
           />
           <div className="max-w-1/2 w-1/2"></div>
         </section>
@@ -103,6 +128,7 @@ export default function Home() {
               link="/rooms"
               info="Flare rooms"
               icon={<FaDoorOpen className="h-6 w-6 text-neutral-300" />}
+              button="Rooms"
             />
             <HomeCard
               tittle="Account - Want to save your chats?"
@@ -129,6 +155,7 @@ export default function Home() {
               icon={
                 <MdOutlineSwitchAccount className="h-6 w-6 text-neutral-300" />
               }
+              button="Account"
             />
             <HomeCard
               tittle="Download the app - Desktop? Mobile?"
@@ -150,6 +177,7 @@ export default function Home() {
               link="/"
               info="Flare desktop and mobile app"
               icon={<RiApps2AddLine className="h-6 w-6 text-neutral-300" />}
+              button="Download"
             />
           </div>
         </section>
@@ -165,6 +193,7 @@ export default function Home() {
               rooms aren&apos;t saved.'
             link="/rooms"
             info="Flare rooms"
+            button="About Rooms"
           />
         </section>
       </main>

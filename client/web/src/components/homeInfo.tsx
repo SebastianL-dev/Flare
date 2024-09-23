@@ -1,4 +1,4 @@
-import LearnMoreButton from "./common/buttons/learnMoreButton";
+import LearnMoreButton from "./common/buttons/textButton";
 
 export default function HomeInfo({
   icon,
@@ -7,6 +7,7 @@ export default function HomeInfo({
   text,
   link,
   info,
+  button,
 }: {
   icon: React.ReactElement;
   infoText: string;
@@ -14,6 +15,7 @@ export default function HomeInfo({
   text: string;
   link: string;
   info: string;
+  button: string;
 }) {
   return (
     <div className="max-w-1/2 w-1/2 flex flex-col gap-4 max-lg:w-full ">
@@ -25,7 +27,7 @@ export default function HomeInfo({
       </div>
       <h2 className="text-4xl font-black">{tittle}</h2>
       <p className="text-white text-opacity-60">{text}</p>
-      <LearnMoreButton link={link} info={info} />
+      <LearnMoreButton link={link} info={info} text={button} />
     </div>
   );
 }

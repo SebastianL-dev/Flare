@@ -59,6 +59,7 @@ export default function Header() {
             height={150}
             src={DefaultLogo2}
             alt="Default Flare's logo with white text"
+            loading="lazy"
           />
         </Link>
 
@@ -75,7 +76,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="flex gap-4">
+        <div className="flex gap-8">
           <DefaultButton
             text="Download"
             color="purple"
