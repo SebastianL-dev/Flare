@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import "../../public/styles/globals.css";
-import { ServerProvider } from "@/contexts/serverCtx";
-import { lato } from "../../public/styles/fonts";
+import "../styles/globals.css";
+import { lato } from "../styles/fonts";
 import SchemaMarkUp from "@/components/schemaMarkUp";
 
 export const metadata: Metadata = {
@@ -47,7 +46,7 @@ export default function RootLayout({
         className={`bg-global text-white ${lato.className} antialiased min-h-screen grid`}
         rel="preload"
       >
-        <ServerProvider>{children}</ServerProvider>
+        {children}
       </body>
     </html>
   );

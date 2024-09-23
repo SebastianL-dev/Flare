@@ -33,7 +33,7 @@ export default function Footer() {
             tittle="Flare"
             buttons={[
               { text: "Download", link: "" },
-              { text: "Chat", link: "" },
+              { text: "Chat", link: "/chat" },
               { text: "Create account", link: "" },
               { text: "Rooms", link: "/rooms" },
             ]}

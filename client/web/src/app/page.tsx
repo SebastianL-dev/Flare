@@ -94,7 +94,7 @@ export default function Home() {
             tittle="Say hello! Start chatting with anyone, anytime."
             text="Create an account now to keep your conversations secure and save
               your chat history. Explore all the features Flare has to offer!"
-            link="/"
+            link="/chat"
             info="Flare"
             button="About flare"
           />
@@ -143,7 +143,7 @@ export default function Home() {
                   </p>
                 </>
               }
-              link="/"
+              link="/chat"
               info="Flare accounts"
               icon={
                 <MdOutlineSwitchAccount className="h-6 w-6 text-neutral-300" />

@@ -69,7 +69,7 @@ export default function Header() {
         >
           <ul className="flex gap-4">
             <NavButton text="Discover" link="/" />
-            <NavButton text="Chat" link="/" />
+            <NavButton text="Chat" link="/chat" />
             <NavButton text="Rooms" link="/rooms" />
             <NavButton text="Support" link="/" />
             <NavButton text="Team" link="/" />
