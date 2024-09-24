@@ -5,7 +5,7 @@ import Link from "next/link";
 import DefaultButton from "./buttons/defaultButton";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import DefaultLogo2 from "@/../public/images/logos/svg/Text-Logo-Default-2.svg";
+import DefaultLogo2 from "@/../public/images/logos/webp/Text-Logo-Default-1 .webp";
 
 export default function Header() {
   const [headerS, setHeaderS] = useState<string>(
@@ -14,14 +14,9 @@ export default function Header() {
   const [headerPadding, setHeaderPadding] = useState<string>("py-8");
   const [headerTop, setHeaderTop] = useState<string>("top-0");
   const [lastScroll, setLastScroll] = useState<number>(0);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     let scrollTop: number = document.documentElement.scrollTop;
-
-    const handleSize = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
 
     const handleScroll = () => {
       scrollTop > lastScroll
@@ -41,13 +36,9 @@ export default function Header() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleSize);
-    window.addEventListener("load", handleSize);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleSize);
-      window.removeEventListener("load", handleSize);
     };
   });
 
@@ -63,25 +54,15 @@ export default function Header() {
           href={"/"}
           aria-label="Home logo"
         >
-          {!isMobile ? (
-            <Image
-              width={150}
-              height={150}
-              src={DefaultLogo2}
-              alt="Default Flare's logo with white text"
-              loading="eager"
-              rel="preload"
-            />
-          ) : (
-            <Image
-              width={120}
-              height={120}
-              src={DefaultLogo2}
-              alt="Default Flare's logo with white text"
-              loading="eager"
-              rel="preload"
-            />
-          )}
+          <Image
+            width={150}
+            height={150}
+            src={DefaultLogo2}
+            alt="Default Flare's logo with white text"
+            loading="eager"
+            rel="preload"
+            sizes="(max-width: 1024px) 100px, 100px"
+          />
         </Link>
 
         <nav
