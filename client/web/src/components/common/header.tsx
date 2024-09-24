@@ -59,7 +59,8 @@ export default function Header() {
             height={150}
             src={DefaultLogo2}
             alt="Default Flare's logo with white text"
-            loading="lazy"
+            loading="eager"
+            rel="preload"
           />
         </Link>
 
