@@ -44,9 +44,12 @@ export default function Home() {
                 whenever you want!
               </h1>
               <p className="w-full text-neutral-400 max-lg:text-center">
-                Connect with friends and meet new people now. Explore The Rooms
-                and start your new adventure. No account needed in rooms, just
-                join in one and dive into the conversation!
+                Connect with friends and meet new people. Explore{" "}
+                <strong className="text-white text-opacity-75">
+                  The Rooms
+                </strong>{" "}
+                and start your new adventure. Don&apos;t wait anymore and Create
+                an account now!
               </p>
             </div>
             <div className="flex gap-8 max-lg:justify-center">
