@@ -14,9 +14,14 @@ export default function Header() {
   const [headerPadding, setHeaderPadding] = useState<string>("py-8");
   const [headerTop, setHeaderTop] = useState<string>("top-0");
   const [lastScroll, setLastScroll] = useState<number>(0);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     let scrollTop: number = document.documentElement.scrollTop;
+
+    const handleSize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
 
     const handleScroll = () => {
       scrollTop > lastScroll
@@ -36,9 +41,13 @@ export default function Header() {
     };
 
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleSize);
+    window.addEventListener("load", handleSize);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleSize);
+      window.removeEventListener("load", handleSize);
     };
   });
 
@@ -47,21 +56,32 @@ export default function Header() {
       className={`flex h-fit w-full fixed ${headerS} ${headerTop} transition-all ease-linear duration-300 z-50 border-b-2 border-purple-500`}
     >
       <div
-        className={`flex justify-between mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] w-full ${headerPadding} transition-all ease-linear`}
+        className={`flex justify-between items-center mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] w-full ${headerPadding} transition-all ease-linear`}
       >
         <Link
           className={`text-[40px] h-min logo hover:scale-105 transition-all ease-linear`}
           href={"/"}
           aria-label="Home logo"
         >
-          <Image
-            width={150}
-            height={150}
-            src={DefaultLogo2}
-            alt="Default Flare's logo with white text"
-            loading="eager"
-            rel="preload"
-          />
+          {!isMobile ? (
+            <Image
+              width={150}
+              height={150}
+              src={DefaultLogo2}
+              alt="Default Flare's logo with white text"
+              loading="eager"
+              rel="preload"
+            />
+          ) : (
+            <Image
+              width={120}
+              height={120}
+              src={DefaultLogo2}
+              alt="Default Flare's logo with white text"
+              loading="eager"
+              rel="preload"
+            />
+          )}
         </Link>
 
         <nav
@@ -77,7 +97,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="flex gap-8">
+        <div className="flex max-lg:hidden">
           <DefaultButton
             text="Download"
             color="purple"
@@ -85,7 +105,9 @@ export default function Header() {
             link="/"
             hide="max-[450px]:hidden"
           />
+        </div>
 
+        <div className="flex gap-8">
           <input className="hidden" type="checkbox" id="checkbox" />
           <label
             htmlFor="checkbox"
