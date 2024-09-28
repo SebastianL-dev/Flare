@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* TODO: Reduce css */
-
 body::-webkit-scrollbar-thumb {
   background-color: #a855f7;
   border-radius: 999999px;
