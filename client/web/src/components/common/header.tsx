@@ -5,7 +5,7 @@ import Link from "next/link";
 import DefaultButton from "./buttons/defaultButton";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import DefaultLogo2 from "@/../public/images/logos//webp/Text-Logo-Default-1.webp";
+import DefaultLogo2 from "@/../public/images/logos/webp/Text-Logo-Default-1.webp";
 
 export default function Header() {
   const [headerS, setHeaderS] = useState<string>(
@@ -55,12 +55,11 @@ export default function Header() {
           aria-label="Home logo"
         >
           <Image
-            width={150}
+            width={100}
             src={DefaultLogo2}
             alt="Default Flare's logo with white text"
             layout="responsive"
-            sizes="(max-width: 768px) 110px, (min-width: 769px) 150px"
-            loading="eager"
+            sizes="(max-width: 1024px) 100px, (min-width: 1024px) 150px"
             priority
           />
         </Link>
