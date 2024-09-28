@@ -25,7 +25,7 @@ export default function HomeInfo({
         </div>
         <span>{infoText}</span>
       </div>
-      <h2 className="text-4xl font-black">{tittle}</h2>
+      <h2 className="text-4xl font-black max-sm:text-3xl">{tittle}</h2>
       <p className="text-white text-opacity-60">{text}</p>
       <LearnMoreButton link={link} info={info} text={button} />
     </div>

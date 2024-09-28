@@ -39,7 +39,7 @@ export default function Home() {
         <section className="my-16 rounded-xl flex items-center lg:bg-card-right justify-between gap-8">
           <div className="max-w-[50%] flex flex-col gap-16 max-lg:max-w-full">
             <div className="flex flex-col gap-4 max-lg:items-center">
-              <h1 className="font-black text-5xl max-w-[500px] max-lg:text-4xl max-lg:w-full max-lg:text-center">
+              <h1 className="font-black text-5xl max-w-[500px] max-lg:text-4xl max-sm:text-3xl max-lg:w-full max-lg:text-center">
                 Chat with <span className="text-purple-500">everyone</span>{" "}
                 whenever you want!
               </h1>
@@ -105,7 +105,9 @@ export default function Home() {
         </section>
 
         <section className="flex flex-col items-center gap-16">
-          <h2 className="text-4xl font-black">Amazing features</h2>
+          <h2 className="text-4xl font-black max-sm:text-3xl">
+            Amazing features
+          </h2>
           <div className="flex gap-8 max-lg:flex-col items-center">
             <HomeCard
               tittle="The Rooms - Fastest way to chat"

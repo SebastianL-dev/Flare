@@ -38,7 +38,7 @@ export default function Rooms() {
         <section className="my-16 rounded-xl flex items-center justify-between gap-8">
           <div className="max-w-[50%] flex flex-col gap-16 max-lg:max-w-full">
             <div className="flex flex-col gap-4">
-              <h1 className="font-black text-5xl w-[500px] max-lg:w-full max-lg:text-center">
+              <h1 className="font-black text-5xl w-[500px] max-lg:w-full max-lg:text-center max-lg:text-4xl max-sm:text-3xl">
                 Short on time?{" "}
                 <span className="text-purple-500">The rooms</span> make it easy
               </h1>
