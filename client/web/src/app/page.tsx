@@ -48,8 +48,7 @@ export default function Home() {
                 <strong className="text-white text-opacity-75">
                   The Rooms
                 </strong>{" "}
-                and start your new adventure. Don&apos;t wait anymore and Create
-                an account now!
+                and start your new adventure.
               </p>
             </div>
             <div className="flex gap-8 max-lg:justify-center">
