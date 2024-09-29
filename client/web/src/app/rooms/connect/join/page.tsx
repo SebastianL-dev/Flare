@@ -3,11 +3,10 @@
 import { FormEvent, useState } from "react";
 import { TextInput } from "@/components/inputs";
 
-import Link from "next/link";
 import { useServerContext } from "@/contexts/serverCtx";
 import { useRouter } from "next/navigation";
-
-export const runtime = "edge";
+import Header from "@/components/common/header";
+import SimpleFooter from "@/components/simpleFooter";
 
 export default function CreateChat() {
   // Variables
@@ -33,18 +32,21 @@ export default function CreateChat() {
     }
   };
 
+  // Render page
   return (
     <main className="flex justify-center items-center flex-col gap-16 h-screen">
       <section>
-        <article className="grid gap-12 bg-join-card border-2 bg-opacity-25 border-white border-opacity-10 shadow-card p-10 rounded-xl backdrop-blur-sm shadow-card">
+        <article className="grid gap-12 bg-join-card max-w-[600px] border-2 bg-opacity-25 border-white border-opacity-10 shadow-card p-10 rounded-2xl backdrop-blur-sm shadow-card">
           <header className="flex flex-col gap-4 items-center">
-            <h1 className="text-4xl font-bold text-center">
-              Join to the party. Conversation <br /> is waiting for you!
+            <h1 className="font-black text-4xl text-center">
+              Join to the party!{" "}
+              <span className="text-purple-500">Conversation</span> is waiting
+              for you!
             </h1>
-            <p className="text-white text-opacity-55 text-center max-w-[540px]">
+            <p className="w-full text-neutral-400 text-center">
               Join a room to talk with your friends now! In rooms your chats
               never will be saved, to save all of your conversations{" "}
-              <a className="font-bold text-purple-500 text-opacity-100 cursor-pointer transition-all ease-linear hover:text-opacity-70 ">
+              <a className="font-bold text-purple-400 text-opacity-80 cursor-pointer transition-all ease-linear hover:text-opacity-70 ">
                 Create an account
               </a>{" "}
               rigth now!
@@ -56,7 +58,7 @@ export default function CreateChat() {
               JoinRoom(e);
             }}
             action="/rooms/room"
-            className="flex flex-col gap-12 items-center"
+            className="flex flex-col gap-16 items-center"
           >
             <fieldset className="flex gap-8">
               <TextInput
@@ -75,7 +77,7 @@ export default function CreateChat() {
               onClick={(e) => JoinRoom(e)}
               className="font-bold px-8 py-2 text-neutral-300 hover:text-white transition-all ease-linear duration-300 flex w-fit bg-white bg-opacity-10 rounded-full button-hover shadow-button-default hover:shadow-button-hover hover:bg-purple-500"
             >
-              Join room!
+              Join!
             </button>
           </form>
         </article>

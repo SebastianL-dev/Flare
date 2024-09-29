@@ -55,7 +55,6 @@ export default function Header() {
           aria-label="Home logo"
         >
           <Image
-            className="h-auto max-lg:w-32 max-md:w-24"
             width={150}
             src={DefaultLogo2}
             alt="Default Flare's logo with white text"
