@@ -19,7 +19,7 @@ export const ServerProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   useEffect(() => {
-    setSocketConection(io("http://localhost:10000"));
+    setSocketConection(io("https://flare-brb6.onrender.com"));
   }, []);
 
   return (

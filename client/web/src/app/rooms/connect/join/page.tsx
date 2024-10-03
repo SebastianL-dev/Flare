@@ -5,8 +5,6 @@ import { TextInput } from "@/components/inputs";
 
 import { useServerContext } from "@/contexts/serverCtx";
 import { useRouter } from "next/navigation";
-import Header from "@/components/common/header";
-import SimpleFooter from "@/components/simpleFooter";
 
 export default function CreateChat() {
   // Variables
@@ -26,7 +24,7 @@ export default function CreateChat() {
         userName: username,
         roomid: room,
       });
-      router.push(`/rooms/room?roomid=${room}&user=${username}`);
+      router.push(`/rooms/connect/room?roomid=${room}&user=${username}`);
     } else {
       e.preventDefault();
     }
@@ -34,7 +32,7 @@ export default function CreateChat() {
 
   // Render page
   return (
-    <main className="flex justify-center items-center flex-col gap-16 h-screen">
+    <main className="flex justify-center items-center flex-col gap-16 h-full">
       <section>
         <article className="grid gap-12 bg-join-card max-w-[600px] border-2 bg-opacity-25 border-white border-opacity-10 shadow-card p-10 rounded-2xl backdrop-blur-sm shadow-card">
           <header className="flex flex-col gap-4 items-center">
@@ -57,7 +55,7 @@ export default function CreateChat() {
               e.preventDefault();
               JoinRoom(e);
             }}
-            action="/rooms/room"
+            action="/rooms/connecy/room"
             className="flex flex-col gap-16 items-center"
           >
             <fieldset className="flex gap-8">

@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 import { lato } from "../styles/fonts";
 import SchemaMarkUp from "@/components/schemaMarkUp";
-import Header from "@/components/common/header";
-import Footer from "@/components/common/footer";
+import { ServerProvider } from "@/contexts/serverCtx";
 
 export const metadata: Metadata = {
   title: "Flare Chat App | Real-Time Chat with Rooms or Create an Account",
@@ -38,19 +37,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="en">
       <head>
         <SchemaMarkUp />
         <link rel="canonical" href="https://flare-a4x.pages.dev/" />
       </head>
       <body
-        suppressHydrationWarning={true}
         className={`bg-global text-white ${lato.className} antialiased min-h-screen grid`}
         rel="preload"
       >
-        <Header />
-        {children}
-        <Footer />
+        <ServerProvider>{children}</ServerProvider>
       </body>
     </html>
   );
