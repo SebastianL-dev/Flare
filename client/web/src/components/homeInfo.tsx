@@ -1,4 +1,4 @@
-import LearnMoreButton from "./common/buttons/textButton";
+import TextMoreButton from "./common/buttons/textButton";
 
 export default function HomeInfo({
   icon,
@@ -27,7 +27,7 @@ export default function HomeInfo({
       </div>
       <h2 className="text-4xl font-black max-sm:text-3xl">{tittle}</h2>
       <p className="text-white text-opacity-60">{text}</p>
-      <LearnMoreButton link={link} info={info} text={button} />
+      <TextMoreButton link={link} info={info} text={button} />
     </div>
   );
 }

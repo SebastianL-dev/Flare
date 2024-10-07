@@ -1,8 +1,8 @@
 "use client";
 
-import NavButton from "./buttons/navButton";
+import NavButton from "../common/buttons/navButton";
 import Link from "next/link";
-import DefaultButton from "./buttons/defaultButton";
+import DefaultButton from "../common/buttons/defaultButton";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import DefaultLogo2 from "@/../public/images/logos/webp/Text-Logo-Default-1.webp";

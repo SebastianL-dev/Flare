@@ -1,5 +1,5 @@
-import Footer from "@/components/common/footer";
-import Header from "@/components/common/header";
+import Footer from "@/components/footer/footer";
+import Header from "@/components/header/header";
 
 export default function Chat() {
   return (

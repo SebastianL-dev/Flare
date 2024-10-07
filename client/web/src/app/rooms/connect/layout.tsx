@@ -1,4 +1,5 @@
-import SimpleFooter from "@/components/simpleFooter";
+import SimpleFooter from "@/components/footer/simpleFooter";
+import SimpleHeader from "@/components/header/simpleHeader";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -34,9 +35,9 @@ export default function RoomsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex h-screen">
+      <SimpleHeader />
       {children}
-      <SimpleFooter />
     </div>
   );
 }

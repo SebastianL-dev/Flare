@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { HiMiniArrowUpRight } from "react-icons/hi2";
 
-export default function LearnMoreButton({
+export default function TextMoreButton({
   link,
   info,
   text,

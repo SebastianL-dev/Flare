@@ -32,7 +32,7 @@ export default function CreateChat() {
 
   // Render page
   return (
-    <main className="flex justify-center items-center flex-col gap-16 h-full">
+    <main className="flex justify-center items-center flex-col gap-16 h-full w-full">
       <section>
         <article className="grid gap-12 bg-join-card max-w-[600px] border-2 bg-opacity-25 border-white border-opacity-10 shadow-card p-10 rounded-2xl backdrop-blur-sm shadow-card">
           <header className="flex flex-col gap-4 items-center">

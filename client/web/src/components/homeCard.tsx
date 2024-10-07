@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import LearnMoreButton from "./common/buttons/textButton";
+import TextMoreButton from "./common/buttons/textButton";
 
 export default function HomeCard({
   tittle,
@@ -44,7 +44,7 @@ export default function HomeCard({
         </header>
         <div className="flex flex-col gap-8 justify-between h-full">
           {text}
-          <LearnMoreButton link={link} info={info} text={button} />
+          <TextMoreButton link={link} info={info} text={button} />
         </div>
       </div>
     </article>

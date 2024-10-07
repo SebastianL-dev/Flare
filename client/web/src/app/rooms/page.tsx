@@ -1,6 +1,6 @@
 import DefaultButton from "@/components/common/buttons/defaultButton";
-import Footer from "@/components/common/footer";
-import Header from "@/components/common/header";
+import Footer from "@/components/footer/footer";
+import Header from "@/components/header/header";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

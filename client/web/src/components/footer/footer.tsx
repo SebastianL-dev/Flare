@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { FaGithub, FaInstagram } from "react-icons/fa6";
-import FooterButtonsSection from "./footer/footerButtonsSection";
-import FooterCard from "./footer/footerCard";
-import SocialMediaBtn from "./buttons/socialMediaButton";
+import FooterButtonsSection from "./footerButtonsSection";
+import FooterCard from "./footerCard";
+import SocialMediaBtn from "../common/buttons/socialMediaButton";
 import Image from "next/image";
 import TextLogoWhite from "@/../public/images/logos/svg/Text-Logo-White.svg";
 

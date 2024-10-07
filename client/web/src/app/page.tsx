@@ -1,8 +1,8 @@
 "use client";
 
 import DefaultButton from "@/components/common/buttons/defaultButton";
-import Footer from "@/components/common/footer";
-import Header from "@/components/common/header";
+import Footer from "@/components/footer/footer";
+import Header from "@/components/header/header";
 import Image from "next/image";
 import ChatImg from "@/../public/images/Chat.svg";
 import HomeCard from "@/components/homeCard";
