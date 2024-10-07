@@ -1,7 +1,7 @@
-import SimpleFooter from "@/components/footer/simpleFooter";
 import SimpleHeader from "@/components/header/simpleHeader";
 import type { Metadata } from "next";
 
+// TODO: Update metadata
 export const metadata: Metadata = {
   title: "Flare Chat App | Real-Time Chat with Rooms or Create an Account",
   description:

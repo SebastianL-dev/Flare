@@ -2,14 +2,13 @@
 
 import { useServerContext } from "@/contexts/serverCtx";
 import { IMessageData } from "@/interfaces/messageData";
+import getDate from "@/utils/getDate";
 import { useSearchParams } from "next/navigation";
-import { ReactElement, useEffect, useState } from "react";
+import { FormEvent, ReactElement, useEffect, useState } from "react";
 import { BiSolidSend } from "react-icons/bi";
 import { FaPlus } from "react-icons/fa6";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { RiEmojiStickerLine } from "react-icons/ri";
-
-export const runtime = "edge";
 
 export default function RoomChat() {
   // Variables
@@ -53,23 +52,17 @@ export default function RoomChat() {
       message: sendMessage,
       date: Date(),
     });
+
+    setSendMessage("");
   };
 
   return (
-    <main className=" flex justify-center h-screen">
-      <section className="h-[100%_-_margin] flex flex-col my-12 mx-[30%] gap-4 bg-chat-card border-2 border-white border-opacity-10 p-6 rounded-xl w-full">
+    <main className="flex justify-center h-full w-full">
+      <section className="h-[100%_-_margin] flex flex-col my-12 max-w-[800px] gap-4 bg-chat-card border-2 border-white border-opacity-10 p-6 rounded-xl w-full">
         <div className="flex flex-col gap-2 overflow-y-scroll pr-4 h-full chat-scroll">
           {messages.map((message: IMessageData, index) => {
             const messageStyle =
               URLParams.get("user") == message.userName ? true : false;
-
-            const date = new Date(message.date);
-            let hours = date.getHours();
-            let minutes = date.getMinutes();
-
-            let am_pm = hours >= 12 ? "pm" : "am";
-            hours = hours % 12;
-            hours = hours != 0 ? hours : 12;
 
             return (
               <>
@@ -94,9 +87,7 @@ export default function RoomChat() {
                       {message.message}
                     </p>
                     <time className="text-xs text-white text-opacity-15">
-                      {`${hours}:${
-                        minutes < 10 ? "0" + minutes : minutes
-                      } ${am_pm}`}
+                      {getDate({ date: message.date })}
                     </time>
                   </div>
                 </div>
@@ -108,9 +99,15 @@ export default function RoomChat() {
           })}
           {/* {joinMessage} */}
         </div>
+
+        {/* FIXME: Fix emoji animation button */}
         <form
           className="bg-purple-900 bg-opacity-15 flex px-4 py-2 gap-4 rounded-xl w-full self-end items-center"
-          action=""
+          onSubmit={(e: FormEvent) => {
+            e.preventDefault();
+            SendMessage();
+          }}
+          action="Send message"
         >
           <div className="flex gap-2">
             <button className="bg-white group bg-opacity-5 rounded-full p-2 hover:bg-opacity-10 hover:-rotate-90 hover:scale-105 transition-all ease-message-button duration-[.4s]">
@@ -125,6 +122,7 @@ export default function RoomChat() {
             type="text"
             placeholder="Type your message"
             onChange={(e) => setSendMessage(e.target.value)}
+            value={sendMessage}
           />
           <button
             className="bg-purple-500 rounded-full p-2 hover:-rotate-45 hover:scale-110 transition-all ease-message-button duration-[.4s] hover:shadow-button-hover"

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import DefaultLogo2 from "@/../public/images/logos/webp/Text-Logo-Default-1.webp";
 
+// TODO: Add show/hide animation to the header
 export default function Header() {
   const [headerS, setHeaderS] = useState<string>(
     "bg-transparent border-opacity-0"
