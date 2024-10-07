@@ -10,6 +10,8 @@ import { FaPlus } from "react-icons/fa6";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { RiEmojiStickerLine } from "react-icons/ri";
 
+export const runtime = "edge";
+
 export default function RoomChat() {
   // Variables
   const [sendMessage, setSendMessage] = useState<string>("");
