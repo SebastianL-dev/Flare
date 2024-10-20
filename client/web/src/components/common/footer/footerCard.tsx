@@ -1,4 +1,4 @@
-import DefaultButton from "../common/buttons/defaultButton";
+import DefaultButton from "../buttons/defaultButton";
 
 export default function FooterCard() {
   return (

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaGithub, FaInstagram } from "react-icons/fa6";
-import SocialMediaBtn from "../common/buttons/socialMediaButton";
+import SocialMediaBtn from "../buttons/socialMediaButton";
 
 export default function SimpleFooter() {
   return (

@@ -24,15 +24,11 @@ io.on("connection", async (socket) => {
   socket.on("joinRoom", (data) => {
     console.log(`${data.userName} has joined in the room: ${data.roomid}`);
     socket.join(data.roomid);
-    socket.broadcast
-      .to(data.roomid)
-      .emit("userConnected", "has joined the chat, say hello! :)");
+    socket.broadcast.to(data.roomid).emit("userConnected", data);
   });
 
   socket.on("sendMessage", (data) => {
     io.to(data.roomid).emit("recieveMessage", data);
-
-    console.log(data);
   });
 });
 

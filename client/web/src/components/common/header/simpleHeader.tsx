@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Logo from "@/../public/images/logos/svg/Logo-Purple.svg";
 import Link from "next/link";
-import SimpleNavButton from "../buttons/simpleNavButton";
+import SimpleNavButton from "@/components/common/buttons/simpleNavButton";
 import { TbFlare, TbHelpCircle } from "react-icons/tb";
-import SimpleButton from "../buttons/simpleButton";
+import SimpleButton from "@/components/common/buttons/simpleButton";
 import { MdOutlineAccountCircle, MdOutlineFileDownload } from "react-icons/md";
 import { FaDoorOpen } from "react-icons/fa";
 import { BsPeopleFill } from "react-icons/bs";
@@ -51,7 +51,6 @@ export default function SimpleHeader() {
           </ul>
         </nav>
 
-        {/* FIXME: Fix button animation */}
         <SimpleButton
           icon={<MdOutlineFileDownload className="w-6 h-6" />}
           link="/"

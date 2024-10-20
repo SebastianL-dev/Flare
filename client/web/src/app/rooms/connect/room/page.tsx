@@ -4,7 +4,7 @@ import { useServerContext } from "@/contexts/serverCtx";
 import { IMessageData } from "@/interfaces/messageData";
 import getDate from "@/utils/getDate";
 import { useSearchParams } from "next/navigation";
-import { FormEvent, ReactElement, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { BiSolidSend } from "react-icons/bi";
 import { FaPlus } from "react-icons/fa6";
 import { IoPersonCircleOutline } from "react-icons/io5";
@@ -16,7 +16,6 @@ export default function RoomChat() {
   // Variables
   const [sendMessage, setSendMessage] = useState<string>("");
   const [messages, setMessages] = useState<IMessageData[]>([]);
-  const [joinMessage, setJoinMessage] = useState<ReactElement>(<></>);
 
   // Get url params like room and user name
   const URLParams = useSearchParams();
@@ -28,17 +27,8 @@ export default function RoomChat() {
     socket?.on("recieveMessage", (data) =>
       setMessages((messagesData) => [...messagesData, data])
     );
-    socket?.on("userConnected", (user) =>
-      setJoinMessage(
-        <div className="flex justify-center text-neutral-300 bg-purple-500 bg-opacity-10 rounded-lg py-1">
-          <p>
-            <span className="text-purple-500 font-bold">
-              {user.charAt(0).toUpperCase() + user.slice(1)}
-            </span>{" "}
-            has joined the chat, say hello! :)
-          </p>
-        </div>
-      )
+    socket?.on("userConnected", (data) =>
+      setMessages((messagesData) => [...messagesData, data])
     );
 
     return () => {
@@ -68,41 +58,48 @@ export default function RoomChat() {
 
             return (
               <>
-                <div
-                  key={index}
-                  className={`flex gap-2 justify-start items-start h-fit ${
-                    messageStyle ? "flex-row-reverse" : ""
-                  }`}
-                >
-                  <IoPersonCircleOutline className="min-h-8 min-w-8 text-neutral-700 text-opacity-80" />
+                {message.message ? (
                   <div
-                    className={`flex gap-0 flex-col bg-neutral-800 bg-opacity-55 py-2 px-4 rounded-b-xl backdrop-blur-sm ${
-                      messageStyle
-                        ? "items-end rounded-s-xl ml-[30%]"
-                        : "items-start rounded-e-xl mr-[30%]"
+                    key={index}
+                    className={`flex gap-2 justify-start items-start h-fit ${
+                      messageStyle ? "flex-row-reverse" : ""
                     }`}
                   >
-                    <span className="text-white text-opacity-30 text-sm font-bold">
-                      {messageStyle ? "You" : `${message.userName}`}
-                    </span>
-                    <p className="text-white text-opacity-90">
-                      {message.message}
-                    </p>
-                    <time className="text-xs text-white text-opacity-15">
-                      {getDate({ date: message.date })}
-                    </time>
+                    <IoPersonCircleOutline className="min-h-8 min-w-8 text-neutral-700 text-opacity-80" />
+                    <div
+                      className={`flex gap-0 flex-col bg-neutral-800 bg-opacity-55 py-2 px-4 rounded-b-xl backdrop-blur-sm ${
+                        messageStyle
+                          ? "items-end rounded-s-xl ml-[30%]"
+                          : "items-start rounded-e-xl mr-[30%]"
+                      }`}
+                    >
+                      <span className="text-white text-opacity-30 text-sm font-bold">
+                        {messageStyle ? "You" : `${message.userName}`}
+                      </span>
+                      <p className="text-white text-opacity-90">
+                        {message.message}
+                      </p>
+                      <time className="text-xs text-white text-opacity-15">
+                        {getDate({ date: message.date })}
+                      </time>
+                    </div>
                   </div>
-                </div>
-                <div key={index}>
-                  {messages.length - 1 == index ? joinMessage : <></>}
-                </div>
+                ) : (
+                  <div className="flex justify-center text-neutral-300 bg-purple-500 bg-opacity-10 rounded-lg py-1">
+                    <p>
+                      <span className="text-purple-500 font-bold">
+                        {message.userName.charAt(0).toUpperCase() +
+                          message.userName.slice(1)}
+                      </span>{" "}
+                      has joined the chat, say hello! :)
+                    </p>
+                  </div>
+                )}
               </>
             );
           })}
-          {/* {joinMessage} */}
         </div>
 
-        {/* FIXME: Fix emoji animation button */}
         <form
           className="bg-purple-900 bg-opacity-15 flex px-4 py-2 gap-4 rounded-xl w-full self-end items-center"
           onSubmit={(e: FormEvent) => {
