@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiMessageSquareError } from "react-icons/bi";
 
 export function TextInput({
   text,
   errTxt,
   change,
+  errorHandler,
 }: {
   text: string;
   errTxt: string;
   change: (value: string) => void;
+  errorHandler: boolean;
 }) {
   // Variables
   const [value, setValue] = useState<string>("");
@@ -26,10 +28,13 @@ export function TextInput({
     ? "opacity-70 translate-y-9"
     : "opacity-0 translate-y-12";
 
+  // Set error on send void form
+  useEffect(() => {
+    setError(errorHandler);
+  }, [errorHandler]);
+
   return (
-    <div
-      className={`flex relative flex-col gap-2 before:content-[''] before:absolute before:left-[50%] before:translate-x-[-50%] before:w-[65%] hover:before:bg-purple-500 before:bg-white before:bg-opacity-25 focus-within:before:bg-purple-500 focus-within:before:w-[100%] transition-all ease-linear before:transition-all before:ease-linear before:duration-200 before:h-0.5 before:rounded-full before:-bottom-0.5`}
-    >
+    <div className="flex relative max-sm:w-max flex-col gap-2 before:content-[''] before:absolute before:left-[50%] before:translate-x-[-50%] before:w-[65%] hover:before:bg-purple-500 before:bg-white max-sm:before:w-full before:bg-opacity-25 focus-within:before:bg-purple-500 focus-within:before:w-[100%] transition-all ease-linear before:transition-all before:ease-linear before:duration-200 before:h-0.5 before:rounded-full before:-bottom-0.5">
       <input
         type="text"
         className="bg-transparent flex relative px-1 py-0.5 outline-none peer text-neutral-300 text-center transition-all ease-linear"

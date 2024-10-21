@@ -1,4 +1,4 @@
-import SimpleHeader from "@/components/common/header/simpleHeader";
+import SimpleHeader from "@/components/header/simpleHeader";
 import type { Metadata } from "next";
 
 // TODO: Update metadata

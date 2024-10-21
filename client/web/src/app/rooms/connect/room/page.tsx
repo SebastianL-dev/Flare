@@ -17,23 +17,16 @@ export default function RoomChat() {
   const [sendMessage, setSendMessage] = useState<string>("");
   const [messages, setMessages] = useState<IMessageData[]>([]);
 
-  // Get url params like room and user name
   const URLParams = useSearchParams();
-
-  // Server conection with server context
   const { socket } = useServerContext();
 
   useEffect(() => {
     socket?.on("recieveMessage", (data) =>
       setMessages((messagesData) => [...messagesData, data])
     );
-    socket?.on("userConnected", (data) =>
-      setMessages((messagesData) => [...messagesData, data])
-    );
 
     return () => {
       socket?.off("recieveMessage");
-      socket?.off("userConnected");
     };
   }, [socket]);
 
@@ -86,13 +79,12 @@ export default function RoomChat() {
                   </div>
                 ) : (
                   <div className="flex justify-center text-neutral-300 bg-purple-500 bg-opacity-10 rounded-lg py-1">
-                    <p>
-                      <span className="text-purple-500 font-bold">
-                        {message.userName.charAt(0).toUpperCase() +
-                          message.userName.slice(1)}
-                      </span>{" "}
-                      has joined the chat, say hello! :)
-                    </p>
+                    <span className="text-purple-500 font-bold">
+                      {message.userName.charAt(0).toUpperCase() +
+                        message.userName.slice(1)}
+                    </span>{" "}
+                    &nbsp;
+                    <p>has joined the chat, say hello! :)</p>
                   </div>
                 )}
               </>

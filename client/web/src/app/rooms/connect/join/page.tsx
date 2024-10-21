@@ -10,11 +10,9 @@ export default function CreateChat() {
   // Variables
   const [username, setUsername] = useState<string>("");
   const [room, setRoom] = useState<string>("");
+  const [error, setError] = useState<boolean>(false);
 
-  // Router
   const router = useRouter();
-
-  // Server conection with server context
   const { socket } = useServerContext();
 
   // Emit a socket action to join in a room
@@ -24,9 +22,11 @@ export default function CreateChat() {
         userName: username,
         roomid: room,
       });
+
       router.push(`/rooms/connect/room?roomid=${room}&user=${username}`);
     } else {
       e.preventDefault();
+      setError(true);
     }
   };
 
@@ -34,9 +34,9 @@ export default function CreateChat() {
   return (
     <main className="flex justify-center items-center flex-col gap-16 h-full w-full">
       <section>
-        <article className="grid gap-12 bg-join-card max-w-[600px] border-2 bg-opacity-25 border-white border-opacity-10 shadow-card p-10 rounded-2xl backdrop-blur-sm shadow-card">
+        <article className="grid gap-12 m-5 bg-join-card max-w-[600px] max-[550px]:p-4 border-2 bg-opacity-25 border-white border-opacity-10 p-10 rounded-2xl backdrop-blur-sm shadow-card">
           <header className="flex flex-col gap-4 items-center">
-            <h1 className="font-black text-4xl text-center">
+            <h1 className="font-black text-4xl text-center max-sm:text-3xl">
               Join to the party!{" "}
               <span className="text-purple-500">Conversation</span> is waiting
               for you!
@@ -58,22 +58,23 @@ export default function CreateChat() {
             action="/rooms/connecy/room"
             className="flex flex-col gap-16 items-center"
           >
-            <fieldset className="flex gap-8">
+            <fieldset className="flex gap-8 max-sm:flex-col max-sm:w-full max-sm:items-center">
               <TextInput
                 text="Username"
                 errTxt={"Who are you today?"}
                 change={setUsername}
+                errorHandler={error}
               />
               <TextInput
                 text="Room ID"
                 errTxt={"Secret key is missing!"}
                 change={setRoom}
+                errorHandler={error}
               />
             </fieldset>
             <button
               type="submit"
-              onClick={(e) => JoinRoom(e)}
-              className="font-bold px-8 py-2 text-neutral-300 hover:text-white transition-all ease-linear duration-300 flex w-fit bg-white bg-opacity-10 rounded-full button-hover shadow-button-default hover:shadow-button-hover hover:bg-purple-500"
+              className="flex self-center bg-purple-500 hover:bg-opacity-30 hover:text-purple-100 border-purple-500 text-neutral-200 hover:shadow-button-hover-1 shadow-button-default bg-opacity-10 border-2 h-min px-7 py-2 rounded-full font-bold items-center relative overflow-hidden group default-transition duration-500"
             >
               Join!
             </button>

@@ -14,17 +14,16 @@ const io = new Server(server, {
   cors: { origin: ["https://flare-a4x.pages.dev", "http://localhost:3000"] },
 });
 
-// Use morgan logger and cors
 app.use(cors(), logger("dev"));
 
-// Action on client connect
+// Client acctions
 io.on("connection", async (socket) => {
   console.log("🔸 New user conected: ", socket.id);
 
   socket.on("joinRoom", (data) => {
     console.log(`${data.userName} has joined in the room: ${data.roomid}`);
     socket.join(data.roomid);
-    socket.broadcast.to(data.roomid).emit("userConnected", data);
+    socket.broadcast.to(data.roomid).emit("recieveMessage", data);
   });
 
   socket.on("sendMessage", (data) => {
