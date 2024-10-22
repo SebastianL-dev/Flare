@@ -31,19 +31,21 @@ export default function RoomChat() {
   }, [socket]);
 
   const SendMessage = () => {
-    socket?.emit("sendMessage", {
-      userName: URLParams.get("user"),
-      roomid: URLParams.get("roomid"),
-      message: sendMessage,
-      date: Date(),
-    });
+    if (sendMessage != "") {
+      socket?.emit("sendMessage", {
+        userName: URLParams.get("user"),
+        roomid: URLParams.get("roomid"),
+        message: sendMessage,
+        date: Date(),
+      });
 
-    setSendMessage("");
+      setSendMessage("");
+    }
   };
 
   return (
     <main className="flex justify-center h-full w-full">
-      <section className="h-[100%_-_margin] flex flex-col my-12 max-w-[800px] gap-4 bg-chat-card border-2 border-white border-opacity-10 p-6 rounded-xl w-full">
+      <section className="h-[100%_-_margin] flex flex-col my-12 max-w-[800px] max-[920px]:border-0 max-[920px]:my-0 max-[920px]:max-w-full gap-4 bg-chat-card border-2 border-white border-opacity-10 p-6 rounded-xl w-full">
         <div className="flex flex-col gap-2 overflow-y-scroll pr-4 h-full chat-scroll">
           {messages.map((message: IMessageData, index) => {
             const messageStyle =

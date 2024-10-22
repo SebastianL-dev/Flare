@@ -42,8 +42,8 @@ export default function CreateChat() {
               for you!
             </h1>
             <p className="w-full text-neutral-400 text-center">
-              Join a room to talk with your friends now! In rooms your chats
-              never will be saved, to save all of your conversations{" "}
+              Join a room to talk with your friends! Your chats never will be
+              saved, to save all of your conversations{" "}
               <a className="font-bold text-purple-400 text-opacity-80 cursor-pointer transition-all ease-linear hover:text-opacity-70 ">
                 Create an account
               </a>{" "}

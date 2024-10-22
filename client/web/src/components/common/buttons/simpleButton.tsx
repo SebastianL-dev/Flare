@@ -18,7 +18,7 @@ export default function SimpleButton({
 
   return (
     <Link
-      className={`flex items-center justify-center self-center hover:scale-110 ${style} bg-opacity-10 border-2 p-2 rounded-full transition-all ease-button duration-500 flex items-center justify-center`}
+      className={`flex items-center justify-center max-sm:hidden self-center hover:scale-110 ${style} bg-opacity-10 border-2 p-2 rounded-full transition-all ease-button duration-500 flex items-center justify-center`}
       href={link}
       aria-label={`${aria} link`}
       style={{ transformOrigin: "center" }}

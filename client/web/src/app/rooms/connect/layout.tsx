@@ -35,7 +35,7 @@ export default function RoomsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen max-sm:flex-col">
       <SimpleHeader />
       {children}
     </div>
