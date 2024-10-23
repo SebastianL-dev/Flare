@@ -11,7 +11,7 @@ import { BsPeopleFill } from "react-icons/bs";
 // TODO: Add show/hide animation to the header
 export default function SimpleHeader() {
   return (
-    <header className="flex sm:flex-col sm:h-full max-sm:w-full w-fit bg-[#120022] bg-opacity-60 backdrop-blur-[6px] border-opacity-10 transition-all ease-linear duration-300 z-50 sm:border-r-2 max-sm:border-b-2 border-purple-500">
+    <header className="flex sm:flex-col sm:h-full max-sm:fixed max-sm:w-full w-fit bg-[#120022] bg-opacity-60 backdrop-blur-[6px] border-opacity-10 transition-all ease-linear duration-300 z-50 sm:border-r-2 max-sm:border-b-2 border-purple-500">
       <div className="flex sm:h-full max-sm:w-[calc(100%_-_40px)] max-sm:mx-5 max-sm:py-4 sm:flex-col justify-between sm:my-16 sm:px-4 items-center">
         <Link
           className="hover:scale-110 transition-all ease-bounce duration-500"
