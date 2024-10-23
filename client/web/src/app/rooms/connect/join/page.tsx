@@ -23,6 +23,7 @@ export default function CreateChat() {
         roomid: room,
       });
 
+      sessionStorage.setItem("canJoin", "true");
       router.push(`/rooms/connect/room?roomid=${room}&user=${username}`);
     } else {
       e.preventDefault();

@@ -9,6 +9,7 @@ import { BiSolidSend } from "react-icons/bi";
 import { FaPlus } from "react-icons/fa6";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { RiEmojiStickerLine } from "react-icons/ri";
+import { useRouter } from "next/navigation";
 
 export const runtime = "edge";
 
@@ -16,10 +17,13 @@ export default function RoomChat() {
   // Variables
   const [sendMessage, setSendMessage] = useState<string>("");
   const [messages, setMessages] = useState<IMessageData[]>([]);
-  const chatRef = useRef<HTMLDivElement>(null);
 
+  const chatRef = useRef<HTMLDivElement>(null);
   const URLParams = useSearchParams();
   const { socket } = useServerContext();
+  const router = useRouter();
+
+  const correctJoin = sessionStorage.getItem("canJoin");
 
   // Recieve messages from the server
   useEffect(() => {
@@ -32,9 +36,19 @@ export default function RoomChat() {
     };
   }, [socket]);
 
+  // Auto scroll to bottom
   useEffect(() => {
     chatRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  // Check if the user join correctly to the room
+  useEffect(() => {
+    if (correctJoin != "true") {
+      router.push("/rooms/connect/join");
+    } else {
+      sessionStorage.removeItem("canJoin");
+    }
+  }, [router]);
 
   // Send message to the server
   const SendMessage = () => {
@@ -92,7 +106,7 @@ export default function RoomChat() {
                       <div
                         key={index}
                         className={`flex gap-2 justify-start items-start h-fit ${
-                          index == 0 ? "mt-[75px]" : ""
+                          index == 0 ? "max-sm:mt-[75px]" : ""
                         } ${messageStyle ? "flex-row-reverse" : ""}`}
                       >
                         <IoPersonCircleOutline
