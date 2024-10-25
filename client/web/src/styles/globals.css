@@ -110,4 +110,38 @@ body::-webkit-scrollbar {
   #checkbox:checked + .toggle {
     @apply duration-500 rotate-180;
   }
+  .profile-card {
+    background: rgb(255, 149, 0);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 149, 0, 1) 0%,
+      rgba(158, 0, 255, 1) 100%
+    );
+  }
+  .profile-card-image::after {
+    content: "";
+    width: 35%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -10%;
+    transform: skewX(-15deg);
+    background-image: url("../assets/images/Image-Bg-profile.jpg");
+    background-size: cover;
+    z-index: -10;
+  }
+  .profile-card-image::before {
+    content: "";
+    width: 35%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -10%;
+    transform: skewX(-15deg);
+    background-color: rgb(0, 0, 0, 0.2);
+    z-index: -9;
+  }
+  .image-profile {
+    filter: drop-shadow(0px 0px 20px #000000ad);
+  }
 }

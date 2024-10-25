@@ -46,7 +46,7 @@ export default function SimpleHeader() {
             <SimpleNavButton
               icon={<BsPeopleFill className="w-6 h-6" />}
               aria="Team"
-              link="/"
+              link="/team"
             />
           </ul>
         </nav>

@@ -72,7 +72,7 @@ export default function Header() {
             <NavButton text="Chat" link="/chat" />
             <NavButton text="Rooms" link="/rooms" />
             <NavButton text="Support" link="/" />
-            <NavButton text="Team" link="/" />
+            <NavButton text="Team" link="/team" />
           </ul>
         </nav>
 
@@ -86,7 +86,7 @@ export default function Header() {
           />
         </div>
 
-        <div className="flex gap-8">
+        <div className="flex gap-8 lg:hidden">
           <input className="hidden" type="checkbox" id="checkbox" />
           <label
             htmlFor="checkbox"

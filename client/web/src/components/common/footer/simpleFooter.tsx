@@ -4,7 +4,7 @@ import SocialMediaBtn from "../buttons/socialMediaButton";
 
 export default function SimpleFooter() {
   return (
-    <footer className="bg-opacity-5 gap-16 grid bg-purple-400 border-t-2 border-purple-500 border-opacity-20">
+    <footer className="absolute w-full bg-opacity-5 gap-16 grid bg-purple-400 border-t-2 border-purple-500 border-opacity-20 h-min self-end">
       <section className="flex justify-between mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] items-center text-neutral-300 py-3">
         <span className="text-sm">
           Made with ❤️ by{" "}
