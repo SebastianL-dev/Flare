@@ -7,20 +7,22 @@ import ProfileButton from "@/components/common/buttons/profileButton";
 import { FaGithub, FaInstagram } from "react-icons/fa6";
 
 export default function Team() {
+  // TODO: Add responsive design
   return (
     <>
       <Header />
       <main className="mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] h-full grid">
         <section className="flex h-full w-full items-center">
-          <article className="flex profile-card backdrop-blur-sm rounded-xl p-[3px] w-full">
-            <div className="bg-black flex w-full rounded-xl p-8 bg-opacity-70 gap-12 relative overflow-hidden">
-              <div className="ml-36 flex profile-card-image z-10 h-min self-center">
+          <article className="flex profile-card backdrop-blur-sm rounded-xl p-[3px] w-fit my-28">
+            <div className="bg-black flex w-full rounded-xl p-8 bg-opacity-70 gap-12 max-lg:gap-4 relative overflow-hidden max-lg:flex-col">
+              <div className="ml-[12%] max-lg:ml-0 flex profile-card-image z-10 h-min self-center">
                 <Image
-                  className="rounded-full border-4 border-white border-opacity-20 image-profile"
+                  className="rounded-full border-4 max-lg:w-[200px] max-lg:h-[200px] border-white border-opacity-20 image-profile"
                   src={Profile}
                   width={300}
                   height={300}
                   alt="Profile image"
+                  loading="lazy"
                 />
               </div>
 
@@ -40,17 +42,17 @@ export default function Team() {
                   <div className="flex flex-col gap-2 text-white text-opacity-80">
                     <p className="mt-4">
                       Hey there 👋! Thanks for using Flare, Contact me if you
-                      have any problem or question about Flare, I'm always happy
-                      to help.
+                      have any problem or question about Flare, I&apos;m always
+                      happy to help.
                     </p>
                     <p>
-                      Enjoy Flare, and don't forget to star ⭐ the project on
-                      GitHub if you like it!
+                      Enjoy Flare, and don&apos;t forget to star ⭐ the project
+                      on GitHub if you like it!
                     </p>
                   </div>
                 </div>
 
-                <ul className="flex gap-4">
+                <ul className="flex gap-4 max-[500px]:flex-col">
                   <ProfileButton
                     text="Email"
                     link="mailto: sebastianl2.dev@gmail.com"
