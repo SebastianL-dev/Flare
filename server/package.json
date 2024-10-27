@@ -6,11 +6,13 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev-api": "node --watch principal/index.js"
   },
   "dependencies": {
     "cors": "2.8.5",
     "express": "4.19.2",
+    "mongodb": "^6.10.0",
     "morgan": "1.10.0",
     "socket.io": "4.7.5"
   }

@@ -11,7 +11,9 @@ const port = process.env.PORT ?? 3001;
 const app = express();
 const server = createServer(app);
 const io = new Server(server, {
-  cors: { origin: ["https://flare-a4x.pages.dev", "http://localhost:3000"] },
+  cors: {
+    origin: ["https://flare-a4x.pages.dev", "http://localhost:3000"],
+  },
 });
 
 app.use(cors(), logger("dev"));
@@ -34,6 +36,6 @@ io.on("connection", async (socket) => {
 // Listen port
 server.listen(port, () => {
   console.log(
-    `The server is running at port: ${port} \n\nGo to: http://localhost:${port}`
+    `The server is running on port: ${port} \n\nGo to: http://localhost:${port}`
   );
 });

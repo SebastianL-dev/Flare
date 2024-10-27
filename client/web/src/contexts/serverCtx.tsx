@@ -3,6 +3,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { io, Socket } from "socket.io-client";
 
+const renderURL = `${process.env.NEXT_PUBLIC_RENDER_URL}`;
+
 export interface IServerContext {
   socket?: Socket;
 }
@@ -19,7 +21,7 @@ export const ServerProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   useEffect(() => {
-    setSocketConection(io("https://flare-brb6.onrender.com"));
+    setSocketConection(io(renderURL));
   }, []);
 
   return (
