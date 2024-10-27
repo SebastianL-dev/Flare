@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch index.js",
+    "dev": "node --watch web-sockets/index.js",
     "start": "node index.js",
     "dev-api": "node --watch principal/index.js"
   },
