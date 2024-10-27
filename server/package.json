@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch web-sockets/index.js",
-    "start": "node index.js",
+    "start": "node web-sockets/index.js",
     "dev-api": "node --watch principal/index.js"
   },
   "dependencies": {
