@@ -20,7 +20,7 @@ export default function CreateChat() {
     if (username != "" && room != "") {
       socket?.emit("joinRoom", {
         userName: username,
-        roomid: room,
+        roomId: room,
       });
 
       sessionStorage.setItem("canJoin", "true");
@@ -34,7 +34,7 @@ export default function CreateChat() {
   // Render page
   return (
     <main className="flex justify-center items-center flex-col gap-16 h-full w-full">
-      <section>
+      <section className="relative">
         <article className="grid gap-12 m-5 bg-join-card max-w-[600px] max-[550px]:p-4 border-2 bg-opacity-25 border-white border-opacity-10 p-10 rounded-2xl backdrop-blur-sm shadow-card">
           <header className="flex flex-col gap-4 items-center">
             <h1 className="font-black text-4xl text-center max-sm:text-3xl">

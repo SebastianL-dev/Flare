@@ -50,7 +50,7 @@ export default function Footer() {
             buttons={[
               { text: "Help", link: "" },
               { text: "FAQ", link: "" },
-              { text: "Contact", link: "" },
+              { text: "Contact", link: "/team" },
             ]}
           />
         </nav>

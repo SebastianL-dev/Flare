@@ -22,14 +22,21 @@ app.use(cors(), logger("dev"));
 io.on("connection", async (socket) => {
   console.log("🔸 New user conected: ", socket.id);
 
+  // Join room
   socket.on("joinRoom", (data) => {
-    console.log(`${data.userName} has joined in the room: ${data.roomid}`);
-    socket.join(data.roomid);
-    socket.broadcast.to(data.roomid).emit("recieveMessage", data);
+    console.log(`${data.userName} has joined in the room: ${data.roomId}`);
+    socket.join(data.roomId);
+    socket.broadcast.to(data.roomId).emit("recieveMessage", data);
   });
 
+  // Send message
   socket.on("sendMessage", (data) => {
-    io.to(data.roomid).emit("recieveMessage", data);
+    io.to(data.roomId).emit("recieveMessage", data);
+  });
+
+  // Detect when is typing a message
+  socket.on("typingMessage", (data) => {
+    socket.broadcast.to(data.roomId).emit("isTyping", data);
   });
 });
 

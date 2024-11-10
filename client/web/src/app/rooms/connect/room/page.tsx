@@ -17,6 +17,9 @@ export default function RoomChat() {
   // Variables
   const [sendMessage, setSendMessage] = useState<string>("");
   const [messages, setMessages] = useState<IMessageData[]>([]);
+  const [typing, setTyping] = useState<boolean>(false);
+  const [typingName, setTypingName] = useState<string>("");
+  const [typingStyle, setTypingStyle] = useState<string>("opacity-0");
 
   const chatRef = useRef<HTMLDivElement>(null);
   const URLParams = useSearchParams();
@@ -31,8 +34,14 @@ export default function RoomChat() {
       setMessages((messagesData) => [...messagesData, data])
     );
 
+    socket?.on("isTyping", (data) => {
+      setTyping(data.typing);
+      setTypingName(data.userName);
+    });
+
     return () => {
       socket?.off("recieveMessage");
+      socket?.off("isTyping");
     };
   }, [socket]);
 
@@ -43,11 +52,9 @@ export default function RoomChat() {
 
   // Check if the user join correctly to the room
   useEffect(() => {
-    if (correctJoin != "true") {
-      router.push("/rooms/connect/join");
-    } else {
-      sessionStorage.removeItem("canJoin");
-    }
+    correctJoin != "true"
+      ? router.push("/rooms/connect/join")
+      : sessionStorage.removeItem("canJoin");
   }, [router]);
 
   // Send message to the server
@@ -55,20 +62,65 @@ export default function RoomChat() {
     if (sendMessage != "") {
       socket?.emit("sendMessage", {
         userName: URLParams.get("user"),
-        roomid: URLParams.get("roomid"),
+        roomId: URLParams.get("roomid"),
         message: sendMessage,
         date: Date(),
+      });
+
+      socket?.emit("typingMessage", {
+        userName: URLParams.get("user"),
+        roomId: URLParams.get("roomid"),
+        typing: false,
       });
 
       setSendMessage("");
     }
   };
 
+  const isTyping = (e: string) => {
+    socket?.emit("typingMessage", {
+      userName: URLParams.get("user"),
+      roomId: URLParams.get("roomid"),
+      typing: true,
+    });
+
+    if (e == "") {
+      socket?.emit("typingMessage", {
+        userName: URLParams.get("user"),
+        roomId: URLParams.get("roomid"),
+        typing: false,
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (!typing) {
+      setTypingStyle("opacity-0 flex");
+      setTimeout(() => {
+        setTypingStyle("hidden");
+      }, 200);
+    } else {
+      setTypingStyle("opacity-0 flex");
+      setTimeout(() => {
+        setTypingStyle("opacity-60 flex");
+      }, 1);
+    }
+  }, [typing]);
+
   // Render page
   return (
     <main className="flex justify-center h-full w-full">
       <section className="flex w-full h-full justify-center">
-        <article className="h-[100%_-_margin] flex flex-col my-12 max-w-[800px] max-[920px]:border-0 max-[920px]:my-0 max-[920px]:max-w-full gap-2 bg-chat-card border-2 border-white border-opacity-10 rounded-xl w-full overflow-hidden">
+        <article className="relative h-[100%_-_margin] flex flex-col my-12 max-w-[800px] max-[920px]:border-0 max-[920px]:my-0 max-[920px]:max-w-full gap-2 bg-chat-card border-2 border-white border-opacity-10 rounded-xl w-full overflow-hidden">
+          <div
+            className={`absolute typing ${typingStyle} bottom-24 left-4 z-10 gap-2 items-center justify-center bg-white py-2 px-4 rounded-full bg-opacity-15 backdrop-blur-md transition-all ease-linear duration-200`}
+          >
+            <span className="text-white">
+              {" "}
+              <strong>{typingName}</strong> is typing
+            </span>
+            <div className="loader"></div>
+          </div>
           <div className="flex flex-col gap-1 overflow-y-scroll px-4 h-full chat-scroll mt-4">
             {messages.map((message: IMessageData, index) => {
               const messageStyle =
@@ -102,7 +154,7 @@ export default function RoomChat() {
               return (
                 <>
                   {message.message ? (
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-1" key={index}>
                       <div
                         key={index}
                         className={`flex gap-2 justify-start items-start h-fit ${
@@ -113,7 +165,7 @@ export default function RoomChat() {
                           className={`min-h-8 min-w-8 text-neutral-500 ${messageProfile}`}
                         />
                         <div
-                          className={`flex gap-0 flex-col py-2 px-4 backdrop-blur-sm  ${
+                          className={`flex gap-0 flex-col py-2 px-4 backdrop-blur-sm max-w-96 w-fit  ${
                             messageStyle
                               ? `items-end ${
                                   messageProps
@@ -132,7 +184,9 @@ export default function RoomChat() {
                           >
                             {messageStyle ? "You" : `${message.userName}`}
                           </span>
-                          <p className="text-white">{message.message}</p>
+                          <p className="text-white max-w-full text-balance break-words overflow-wrap overflow-hidden">
+                            {message.message}
+                          </p>
                         </div>
                       </div>
 
@@ -155,8 +209,7 @@ export default function RoomChat() {
                   ) : (
                     <div className="flex justify-center text-neutral-300 bg-purple-500 bg-opacity-10 rounded-lg py-1 mb-4">
                       <span className="text-purple-500 font-bold">
-                        {message.userName.charAt(0).toUpperCase() +
-                          message.userName.slice(1)}
+                        {message.userName}
                       </span>{" "}
                       &nbsp;
                       <p>has joined the chat, say hello! :)</p>
@@ -190,7 +243,10 @@ export default function RoomChat() {
                 className="bg-transparent w-full placeholder:text-purple-100 outline-none placeholder:select-none placeholder:text-opacity-30"
                 type="text"
                 placeholder="Type your message"
-                onChange={(e) => setSendMessage(e.target.value)}
+                onChange={(e) => {
+                  setSendMessage(e.target.value);
+                  isTyping(e.target.value);
+                }}
                 value={sendMessage}
               />
               <button

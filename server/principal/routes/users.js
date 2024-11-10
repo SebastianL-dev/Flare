@@ -4,21 +4,24 @@ import { ObjectId } from "mongodb";
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-  const collection = db.collection("users");
-  const data = await collection.find({}).toArray();
+if (!db) {
+  throw new Error("Error connecting to Flare database");
+}
 
-  res.send(data).status(200);
+// Get user by id
+router.get("/:id", async (req, res) => {
+  const collection = db.collection("users");
+  const query = { _id: new ObjectId(req.params.id) };
+  const data = await collection.findOne(query);
+
+  try {
+    !data ? res.send("User not found").status(404) : res.send(data).status(200);
+  } catch (error) {
+    res.status(500).send("Error getting user: ", error);
+  }
 });
 
-// router.get("/:id", async (req, res) => {
-//   const collection = db.collection("users");
-//   const query = { _id: new ObjectId(req.params.id) };
-//   const data = await collection.findOne(query);
-
-//   !result ? res.send("User not found").status(404) : res.send(data).status(200);
-// });
-
+// Create and add new user
 router.post("/", async (req, res) => {
   const collection = db.collection("users");
 

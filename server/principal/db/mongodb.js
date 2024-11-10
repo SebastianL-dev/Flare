@@ -7,6 +7,8 @@ const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
   },
 });
 
@@ -18,8 +20,9 @@ if (!process.env.MONGODB_URI) {
 // Connect client to mongodb
 try {
   await client.connect();
+  console.log("Successfully connected to Flare database");
 } catch (error) {
-  console.error("Error connecting to MongoDB: ", error);
+  console.error("Error connecting to Flare database: ", error);
 }
 
 let db = client.db("flare");
