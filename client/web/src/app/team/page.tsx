@@ -7,7 +7,6 @@ import ProfileButton from "@/components/common/buttons/profileButton";
 import { FaGithub, FaInstagram } from "react-icons/fa6";
 
 export default function Team() {
-  // TODO: Add responsive design
   return (
     <>
       <Header />

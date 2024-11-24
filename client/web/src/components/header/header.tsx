@@ -90,7 +90,7 @@ export default function Header() {
           <input className="hidden" type="checkbox" id="checkbox" />
           <label
             htmlFor="checkbox"
-            className="lg:hidden toggle w-8 h-fit self-center cursor-pointer flex flex-col justify-center gap-1 hover:scale-110 duration-500"
+            className="lg:hidden toggle min-w-7 min-h-7 w-8 h-fit self-center cursor-pointer flex flex-col justify-center gap-1 hover:scale-110 duration-500"
           >
             <div
               className="bars w-[60%] duration-300 h-1 bg-white rounded-full"

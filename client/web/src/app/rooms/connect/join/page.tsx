@@ -17,7 +17,7 @@ export default function CreateChat() {
 
   // Emit a socket action to join in a room
   const JoinRoom = (e: React.MouseEvent | FormEvent) => {
-    if (username != "" && room != "") {
+    if (username !== "" && room !== "") {
       socket?.emit("joinRoom", {
         userName: username,
         roomId: room,
@@ -59,7 +59,7 @@ export default function CreateChat() {
             action="/rooms/connecy/room"
             className="flex flex-col gap-16 items-center"
           >
-            <fieldset className="flex gap-8 max-sm:flex-col max-sm:w-full max-sm:items-center">
+            <fieldset className="flex gap-8 max-sm:gap-12 max-sm:flex-col max-sm:w-full max-sm:items-center">
               <TextInput
                 text="Username"
                 errTxt={"Who are you today?"}

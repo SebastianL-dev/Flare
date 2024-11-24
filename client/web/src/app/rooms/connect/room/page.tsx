@@ -4,15 +4,17 @@ import { useServerContext } from "@/contexts/serverCtx";
 import { IMessageData } from "@/interfaces/messageData";
 import getDate from "@/utils/getDate";
 import { useSearchParams } from "next/navigation";
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { BiSolidSend } from "react-icons/bi";
 import { FaPlus } from "react-icons/fa6";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { RiEmojiStickerLine } from "react-icons/ri";
 import { useRouter } from "next/navigation";
+import { AiFillAudio } from "react-icons/ai";
 
 export const runtime = "edge";
 
+// TODO: Cambiar el ancho maximo de los mensaje a una medida relativa, para que se adapte a celular
 export default function RoomChat() {
   // Variables
   const [sendMessage, setSendMessage] = useState<string>("");
@@ -26,7 +28,7 @@ export default function RoomChat() {
   const { socket } = useServerContext();
   const router = useRouter();
 
-  const correctJoin = sessionStorage.getItem("canJoin");
+  const correctJoin = useMemo(() => sessionStorage.getItem("canJoin"), []);
 
   // Recieve messages from the server
   useEffect(() => {
@@ -55,11 +57,26 @@ export default function RoomChat() {
     correctJoin != "true"
       ? router.push("/rooms/connect/join")
       : sessionStorage.removeItem("canJoin");
-  }, [router]);
+  }, [router, correctJoin]);
+
+  // Show user typing
+  useEffect(() => {
+    if (!typing) {
+      setTypingStyle("opacity-0 flex");
+      setTimeout(() => {
+        setTypingStyle("hidden");
+      }, 150);
+    } else {
+      setTypingStyle("opacity-0 flex");
+      setTimeout(() => {
+        setTypingStyle("opacity-100 flex");
+      }, 1);
+    }
+  }, [typing]);
 
   // Send message to the server
   const SendMessage = () => {
-    if (sendMessage != "") {
+    if (sendMessage.trim() !== "") {
       socket?.emit("sendMessage", {
         userName: URLParams.get("user"),
         roomId: URLParams.get("roomid"),
@@ -77,6 +94,7 @@ export default function RoomChat() {
     }
   };
 
+  // Detect when a user is typing
   const isTyping = (e: string) => {
     socket?.emit("typingMessage", {
       userName: URLParams.get("user"),
@@ -93,35 +111,22 @@ export default function RoomChat() {
     }
   };
 
-  useEffect(() => {
-    if (!typing) {
-      setTypingStyle("opacity-0 flex");
-      setTimeout(() => {
-        setTypingStyle("hidden");
-      }, 200);
-    } else {
-      setTypingStyle("opacity-0 flex");
-      setTimeout(() => {
-        setTypingStyle("opacity-60 flex");
-      }, 1);
-    }
-  }, [typing]);
-
   // Render page
   return (
     <main className="flex justify-center h-full w-full">
       <section className="flex w-full h-full justify-center">
         <article className="relative h-[100%_-_margin] flex flex-col my-12 max-w-[800px] max-[920px]:border-0 max-[920px]:my-0 max-[920px]:max-w-full gap-2 bg-chat-card border-2 border-white border-opacity-10 rounded-xl w-full overflow-hidden">
           <div
-            className={`absolute typing ${typingStyle} bottom-24 left-4 z-10 gap-2 items-center justify-center bg-white py-2 px-4 rounded-full bg-opacity-15 backdrop-blur-md transition-all ease-linear duration-200`}
+            className={`absolute text-sm typing ${typingStyle} bottom-[92px] left-4 z-50 gap-2 items-center justify-center bg-white py-1 px-4 rounded-full bg-opacity-10 backdrop-blur-sm transition-all ease-linear duration-150`}
           >
-            <span className="text-white">
+            <span className="text-white text-opacity-50">
               {" "}
               <strong>{typingName}</strong> is typing
             </span>
-            <div className="loader"></div>
+            <div className="loader opacity-50"></div>
           </div>
-          <div className="flex flex-col gap-1 overflow-y-scroll px-4 h-full chat-scroll mt-4">
+
+          <div className="flex flex-col gap-1 overflow-y-scroll px-4 h-full chat-scroll mt-2">
             {messages.map((message: IMessageData, index) => {
               const messageStyle =
                 URLParams.get("user") == message.userName ? true : false;
@@ -165,7 +170,7 @@ export default function RoomChat() {
                           className={`min-h-8 min-w-8 text-neutral-500 ${messageProfile}`}
                         />
                         <div
-                          className={`flex gap-0 flex-col py-2 px-4 backdrop-blur-sm max-w-96 w-fit  ${
+                          className={`flex gap-0 flex-col py-2 px-4 backdrop-blur-sm max-w-96 w-auto  ${
                             messageStyle
                               ? `items-end ${
                                   messageProps
@@ -184,8 +189,8 @@ export default function RoomChat() {
                           >
                             {messageStyle ? "You" : `${message.userName}`}
                           </span>
-                          <p className="text-white max-w-full text-balance break-words overflow-wrap overflow-hidden">
-                            {message.message}
+                          <p className="text-white max-w-full whitespace-pre-wrap w-fit break-words overflow-hidden">
+                            {message.message.trim()}
                           </p>
                         </div>
                       </div>
@@ -207,7 +212,11 @@ export default function RoomChat() {
                       </div>
                     </div>
                   ) : (
-                    <div className="flex justify-center text-neutral-300 bg-purple-500 bg-opacity-10 rounded-lg py-1 mb-4">
+                    <div
+                      className={`flex justify-center text-neutral-300 bg-purple-500 bg-opacity-10 rounded-lg py-1 mb-4 ${
+                        index == 0 ? "max-sm:mt-[75px]" : ""
+                      }`}
+                    >
                       <span className="text-purple-500 font-bold">
                         {message.userName}
                       </span>{" "}
@@ -224,7 +233,7 @@ export default function RoomChat() {
 
           <div className="flex w-full h-fit p-4 bg-purple-700 border-t-2 border-white bg-opacity-10 border-opacity-10">
             <form
-              className="bg-purple-950 bg-opacity-25 flex px-4 py-2 gap-4 rounded-xl w-full self-end items-center"
+              className="bg-purple-950 bg-opacity-25 flex p-2 gap-4 rounded-full w-full self-end items-center"
               onSubmit={(e: FormEvent) => {
                 e.preventDefault();
                 SendMessage();
@@ -249,13 +258,29 @@ export default function RoomChat() {
                 }}
                 value={sendMessage}
               />
-              <button
-                className="bg-purple-500 rounded-full p-2 hover:-rotate-45 hover:scale-110 transition-all ease-message-button duration-[.4s] hover:shadow-button-hover"
-                type="button"
-                onClick={SendMessage}
-              >
-                <BiSolidSend className="h-5 w-5" />
-              </button>
+              <div className="relative flex w-9 h-9 items-center justify-center mr-2">
+                <button
+                  className={`absolute left-0 top-0 bg-purple-500 ${
+                    sendMessage.trim() === ""
+                      ? "opacity-0 scale-90 pointer-events-none"
+                      : "opacity-100 scale-100"
+                  } rounded-full p-2 hover:-rotate-45 hover:scale-110 transition-all ease-message-button duration-[.4s] hover:shadow-button-hover`}
+                  type="button"
+                  onClick={SendMessage}
+                >
+                  <BiSolidSend className="h-5 w-5" />
+                </button>
+                <button
+                  className={`absolute left-0 top-0 bg-purple-500 ${
+                    sendMessage.trim() === ""
+                      ? "opacity-100 scale-100"
+                      : "opacity-0 scale-0 pointer-events-none"
+                  } rounded-full p-2 hover:scale-110 transition-all ease-message-button duration-[.4s] hover:shadow-button-hover`}
+                  type="button"
+                >
+                  <AiFillAudio className="h-5 w-5" />
+                </button>
+              </div>
             </form>
           </div>
         </article>

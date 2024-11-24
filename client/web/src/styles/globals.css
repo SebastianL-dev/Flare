@@ -160,7 +160,7 @@ body::-webkit-scrollbar {
     }
   }
   .loader {
-    width: 20px;
+    width: 13px;
     aspect-ratio: 1.154;
     --_g: no-repeat radial-gradient(farthest-side, #ffffff 90%, #ffffff00);
     background: var(--_g) 50% 0, var(--_g) 0 100%, var(--_g) 100% 100%;
