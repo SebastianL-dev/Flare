@@ -2,7 +2,7 @@
 
 import DefaultButton from "@/components/common/buttons/defaultButton";
 import Footer from "@/components/common/footer/footer";
-import Header from "@/components/header/header";
+import Header from "@/components/common/header/header";
 
 export default function Chat() {
   return (
@@ -33,13 +33,13 @@ export default function Chat() {
                 text="Sign in"
                 color="purple"
                 aria="Sign in to Flare"
-                link="/chat/singin-register"
+                link="/chat/account"
               />
               <DefaultButton
                 text="Register"
                 color="white"
                 aria="Create an account in Flare"
-                link="/chat/singin-register"
+                link="/chat/account"
               />
             </div>
           </div>

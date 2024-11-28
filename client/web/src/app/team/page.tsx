@@ -1,4 +1,4 @@
-import Header from "@/components/header/header";
+import Header from "@/components/common/header/header";
 import Image from "next/image";
 import Profile from "@/assets/images/V2.png";
 import SimpleFooter from "@/components/common/footer/simpleFooter";
