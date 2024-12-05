@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] pt-44 pb-96 grid gap-60">
+      <main className="mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] pt-48 pb-96 grid gap-60">
         <section className="my-16 rounded-xl flex items-center lg:bg-card-right justify-between gap-8">
           <div className="max-w-[50%] flex flex-col gap-16 max-lg:max-w-full">
             <div className="flex flex-col gap-4 max-lg:items-center">
@@ -53,7 +53,7 @@ export default function Home() {
                 . Don&apos;t wait anymore and Create an account now!
               </p>
             </div>
-            <div className="flex gap-8 max-lg:justify-center">
+            <div className="flex gap-4 max-lg:justify-center">
               <DefaultButton
                 text="Open Flare"
                 color="purple"
@@ -91,7 +91,7 @@ export default function Home() {
                 width={18}
                 height={18}
                 src={FlareLogoWhite}
-                alt="Flare logo in color white"
+                alt="Flare logo in white color"
               />
             }
             infoText="Get started with Flare!"
@@ -100,7 +100,7 @@ export default function Home() {
               your chat history. Explore all the features Flare has to offer!"
             link="/chat"
             info="Flare"
-            button="About Flare"
+            button="Register"
           />
           <div className="max-w-1/2 w-1/2"></div>
         </section>

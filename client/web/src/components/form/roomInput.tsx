@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BiMessageSquareError } from "react-icons/bi";
 
-export function TextInput({
+export function RoomInput({
   text,
   errTxt,
   change,

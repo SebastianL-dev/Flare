@@ -28,18 +28,18 @@ export default function Chat() {
                 and more! Don&apos;t wait anymore and start your adventure!
               </p>
             </div>
-            <div className="flex gap-8 max-lg:justify-center">
+            <div className="flex gap-4 max-lg:justify-center">
               <DefaultButton
                 text="Sign in"
                 color="purple"
                 aria="Sign in to Flare"
-                link="/chat/account"
+                link="/chat/access#signin"
               />
               <DefaultButton
                 text="Register"
                 color="white"
                 aria="Create an account in Flare"
-                link="/chat/account"
+                link="/chat/access#register"
               />
             </div>
           </div>

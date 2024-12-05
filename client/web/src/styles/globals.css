@@ -24,6 +24,10 @@ body::-webkit-scrollbar {
     background: #8400ff;
     background: radial-gradient(at right center, #8400ff33 0%, #00000000 60%);
   }
+  .bg-login {
+    background: #8400ff;
+    background: radial-gradient(at right center, #a855f759 0%, #8e55f71f 60%);
+  }
   .chat-scroll::-webkit-scrollbar-thumb {
     @apply bg-[#a955f777] rounded-[99999px];
   }
@@ -32,10 +36,10 @@ body::-webkit-scrollbar {
   }
   .default-transition {
     transition: scale cubic-bezier(0.68, -0.6, 0.32, 1.6) 0.4s,
-      background-color linear 0.3s, box-shadow linear 0.3s;
+      background-color linear 0.3s, box-shadow linear 0.3s, opacity linear 0.3s;
   }
   .default-transition:hover {
-    scale: 1.1;
+    scale: 1.07;
   }
   .button-hover {
     transition: scale cubic-bezier(0.68, -0.6, 0.32, 1.6) 0.4s,

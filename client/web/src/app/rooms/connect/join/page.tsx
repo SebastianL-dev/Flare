@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { TextInput } from "@/components/inputs";
+import { RoomInput } from "@/components/form/roomInput";
 
 import { useServerContext } from "@/contexts/serverCtx";
 import { useRouter } from "next/navigation";
@@ -60,13 +60,13 @@ export default function CreateChat() {
             className="flex flex-col gap-16 items-center"
           >
             <fieldset className="flex gap-8 max-sm:gap-12 max-sm:flex-col max-sm:w-full max-sm:items-center">
-              <TextInput
+              <RoomInput
                 text="Username"
                 errTxt={"Who are you today?"}
                 change={setUsername}
                 errorHandler={error}
               />
-              <TextInput
+              <RoomInput
                 text="Room ID"
                 errTxt={"Secret key is missing!"}
                 change={setRoom}

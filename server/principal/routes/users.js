@@ -21,6 +21,18 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// Get all users
+router.get("/", async (req, res) => {
+  const collection = db.collection("users");
+  const data = await collection.find({}).toArray();
+
+  try {
+    res.send(data).status(200);
+  } catch (error) {
+    res.status(500).send("Error getting users: ", error);
+  }
+});
+
 // Create and add new user
 router.post("/", async (req, res) => {
   const collection = db.collection("users");

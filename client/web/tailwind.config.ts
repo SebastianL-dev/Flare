@@ -23,6 +23,7 @@ const config: Config = {
         bounce: "cubic-bezier(0.34, 1.56, 0.64, 1)",
         button: "cubic-bezier(0.68, -0.6, 0.32, 1.6)",
         "message-button": "cubic-bezier(0.83, 0, 0.17, 1)",
+        form: "cubic-bezier(0.65, 0, 0.35, 1)",
       },
     },
   },
