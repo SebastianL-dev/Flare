@@ -1,3 +1,5 @@
+"use client";
+
 import FlareLogoPurple from "@/../public/images/logos/svg/Logo-Purple.svg";
 import Image from "next/image";
 import { useState } from "react";

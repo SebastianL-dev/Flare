@@ -15,6 +15,7 @@ export default function Access() {
   // TODO: Create a user page, like the site where user can see all the info
   // TODO: Create a component for the login and register form, to re-use it
   // FIXME: Change a lot of useStates, better use useRef
+  // FIXME: Add better imports -> require('')..., made website faster
 
   const [formStyle, setFormStyle] = useState<boolean>(false);
   const [textForm, setTextForm] = useState<string>("");
