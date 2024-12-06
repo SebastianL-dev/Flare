@@ -2,27 +2,35 @@
 
 import FlareLogoPurple from "@/../public/images/logos/svg/Logo-Purple.svg";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Info() {
-  const hash = window.location.hash.replace("#", "");
-  const [hashStyle, setHashStyle] = useState<string>(hash);
+  const [hashStyle, setHashStyle] = useState<string>("");
   const [tittleStyle, setTittleStyle] = useState<string>("");
   const [textStyle, setTextStyle] = useState<string>("");
   const [listStyle, setListStyle] = useState<string>("");
 
-  const changeHash = (hashValue: string) => {
-    window.location.hash = hashValue;
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash.replace("#", "");
+      setHashStyle(hash);
+    }
+  }, []);
 
-    setTittleStyle("opacity-0");
-    setTextStyle("opacity-0");
-    setListStyle("opacity-0");
-    setTimeout(() => {
-      setHashStyle(hashValue);
-      setTittleStyle("opacity-100 translate-y-4");
-      setListStyle("opacity-100 translate-x-4");
-      setTextStyle("opacity-100 ");
-    }, 300);
+  const changeHash = (hashValue: string) => {
+    if (typeof window !== "undefined") {
+      window.location.hash = hashValue;
+
+      setTittleStyle("opacity-0");
+      setTextStyle("opacity-0");
+      setListStyle("opacity-0");
+      setTimeout(() => {
+        setHashStyle(hashValue);
+        setTittleStyle("opacity-100 translate-y-4");
+        setListStyle("opacity-100 translate-x-4");
+        setTextStyle("opacity-100 ");
+      }, 300);
+    }
   };
 
   return (

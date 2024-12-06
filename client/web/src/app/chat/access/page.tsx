@@ -1,6 +1,5 @@
 "use client";
 
-import Header from "@/components/common/header/header";
 import Input from "@/components/form/input";
 import { HiOutlineMail } from "react-icons/hi";
 import { LuKeyRound } from "react-icons/lu";
@@ -22,13 +21,15 @@ export default function Access() {
 
   useEffect(() => {
     const handleHash = () => {
-      const hash = window.location.hash.replace("#", "");
-      if (hash === "register") {
-        setFormStyle(false);
-        setTextForm("right-0");
-      } else {
-        setFormStyle(true);
-        setTextForm("right-1/2");
+      if (typeof window !== "undefined") {
+        const hash = window.location.hash.replace("#", "");
+        if (hash === "register") {
+          setFormStyle(false);
+          setTextForm("right-0");
+        } else {
+          setFormStyle(true);
+          setTextForm("right-1/2");
+        }
       }
     };
 
@@ -43,7 +44,6 @@ export default function Access() {
 
   return (
     <>
-      <Header />
       <main className="mx-[20%] max-[1400px]:mx-[10%] max-[1150px]:mx-[5%] max-lg:mx-[20%] max-md:mx-[5%] pt-48 grid gap-60">
         <section>
           <article className="flex relative w-full bg-purple-500 bg-opacity-5 backdrop-blur-sm border-2 border-purple-500 border-opacity-20 rounded-3xl overflow-hidden content-between">
